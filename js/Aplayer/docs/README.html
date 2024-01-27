@@ -324,12 +324,12 @@
 <tr>
 <td>fixed</td>
 <td>false</td>
-<td>enable fixed mode, <a target="_blank" rel="noopener" href="https://aplayer.js.org/#/home?id=fixed-mode">see more details</a></td>
+<td>enable fixed mode, <a href="https://aplayer.js.org/#/home?id=fixed-mode">see more details</a></td>
 </tr>
 <tr>
 <td>mini</td>
 <td>false</td>
-<td>enable mini mode, <a target="_blank" rel="noopener" href="https://aplayer.js.org/#/home?id=mini-mode">see more details</a></td>
+<td>enable mini mode, <a href="https://aplayer.js.org/#/home?id=mini-mode">see more details</a></td>
 </tr>
 <tr>
 <td>autoplay</td>
@@ -389,7 +389,7 @@
 <tr>
 <td>audio.lrc</td>
 <td>-</td>
-<td><a target="_blank" rel="noopener" href="https://aplayer.js.org/#/home?id=lrc">see more details</a></td>
+<td><a href="https://aplayer.js.org/#/home?id=lrc">see more details</a></td>
 </tr>
 <tr>
 <td>audio.theme</td>
@@ -399,12 +399,12 @@
 <tr>
 <td>audio.type</td>
 <td>‘auto’</td>
-<td>values: ‘auto’, ‘hls’, ‘normal’ or other custom type, <a target="_blank" rel="noopener" href="https://aplayer.js.org/#/home?id=mse-support">see more details</a></td>
+<td>values: ‘auto’, ‘hls’, ‘normal’ or other custom type, <a href="https://aplayer.js.org/#/home?id=mse-support">see more details</a></td>
 </tr>
 <tr>
 <td>customAudioType</td>
 <td>-</td>
-<td><a target="_blank" rel="noopener" href="https://aplayer.js.org/#/home?id=mse-support">see more details</a></td>
+<td><a href="https://aplayer.js.org/#/home?id=mse-support">see more details</a></td>
 </tr>
 <tr>
 <td>mutex</td>
@@ -414,7 +414,7 @@
 <tr>
 <td>lrcType</td>
 <td>0</td>
-<td><a target="_blank" rel="noopener" href="https://aplayer.js.org/#/home?id=lrc">see more details</a></td>
+<td><a href="https://aplayer.js.org/#/home?id=lrc">see more details</a></td>
 </tr>
 <tr>
 <td>listFolded</td>
@@ -451,7 +451,7 @@
 </li>
 <li><p><code>ap.toggle()</code>: toggle between play and pause</p>
 </li>
-<li><p><code>ap.on(event: string, handler: function)</code>: bind audio and player events, <a target="_blank" rel="noopener" href="https://aplayer.js.org/#/home?id=event-binding">see more details</a></p>
+<li><p><code>ap.on(event: string, handler: function)</code>: bind audio and player events, <a href="https://aplayer.js.org/#/home?id=event-binding">see more details</a></p>
 </li>
 <li><p><code>ap.volume(percentage: number, nostorage: boolean)</code>: set audio volume</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">ap.<span class="hljs-title function_">volume</span>(<span class="hljs-number">0.1</span>, <span class="hljs-literal">true</span>);<br></code></pre></td></tr></table></figure>
@@ -517,7 +517,7 @@
 </li>
 <li><p><code>ap.audio.paused</code>: returns whether the audio paused</p>
 </li>
-<li><p>most <a target="_blank" rel="noopener" href="http://www.w3schools.com/tags/ref_av_dom.asp">native api</a> are supported</p>
+<li><p>most <a href="http://www.w3schools.com/tags/ref_av_dom.asp">native api</a> are supported</p>
 </li>
 </ul>
 <h2 id="Event-binding"><a href="#Event-binding" class="headerlink" title="Event binding"></a>Event binding</h2><p><code>ap.on(event, handler)</code></p>
@@ -608,7 +608,7 @@
 
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> ap = <span class="hljs-keyword">new</span> <span class="hljs-title class_">APlayer</span>(&#123;<br>    <span class="hljs-attr">container</span>: <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;player&#x27;</span>),<br>    <span class="hljs-attr">mini</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">audio</span>: [&#123;<br>        <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;name&#x27;</span>,<br>        <span class="hljs-attr">artist</span>: <span class="hljs-string">&#x27;artist&#x27;</span>,<br>        <span class="hljs-attr">url</span>: <span class="hljs-string">&#x27;url.mp3&#x27;</span>,<br>        <span class="hljs-attr">cover</span>: <span class="hljs-string">&#x27;cover.jpg&#x27;</span>,<br>    &#125;]<br>&#125;);<br></code></pre></td></tr></table></figure>
 
-<h2 id="MSE-support"><a href="#MSE-support" class="headerlink" title="MSE support"></a>MSE support</h2><h3 id="HLS"><a href="#HLS" class="headerlink" title="HLS"></a>HLS</h3><p>It requires the library <a target="_blank" rel="noopener" href="https://github.com/video-dev/hls.js">hls.js</a> and it should be loaded before <code>APlayer.min.js</code>.</p>
+<h2 id="MSE-support"><a href="#MSE-support" class="headerlink" title="MSE support"></a>MSE support</h2><h3 id="HLS"><a href="#HLS" class="headerlink" title="HLS"></a>HLS</h3><p>It requires the library <a href="https://github.com/video-dev/hls.js">hls.js</a> and it should be loaded before <code>APlayer.min.js</code>.</p>
 <div class="aplayer-wrap">
     <div id="aplayer7"><button class="docute-button load">Click to load player</div>
 </div>
@@ -619,7 +619,7 @@
 
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// another way, use customType</span><br><span class="hljs-keyword">const</span> ap = <span class="hljs-keyword">new</span> <span class="hljs-title class_">APlayer</span>(&#123;<br>    <span class="hljs-attr">container</span>: <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;aplayer&#x27;</span>),<br>    <span class="hljs-attr">audio</span>: [&#123;<br>        <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;HLS&#x27;</span>,<br>        <span class="hljs-attr">artist</span>: <span class="hljs-string">&#x27;artist&#x27;</span>,<br>        <span class="hljs-attr">url</span>: <span class="hljs-string">&#x27;url.m3u8&#x27;</span>,<br>        <span class="hljs-attr">cover</span>: <span class="hljs-string">&#x27;cover.jpg&#x27;</span>,<br>        <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;customHls&#x27;</span><br>    &#125;],<br>    <span class="hljs-attr">customAudioType</span>: &#123;<br>        <span class="hljs-string">&#x27;customHls&#x27;</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">audioElement, audio, player</span>) &#123;<br>            <span class="hljs-keyword">if</span> (<span class="hljs-title class_">Hls</span>.<span class="hljs-title function_">isSupported</span>()) &#123;<br>                <span class="hljs-keyword">const</span> hls = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Hls</span>();<br>                hls.<span class="hljs-title function_">loadSource</span>(audio.<span class="hljs-property">url</span>);<br>                hls.<span class="hljs-title function_">attachMedia</span>(audioElement);<br>            &#125;<br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (audioElement.<span class="hljs-title function_">canPlayType</span>(<span class="hljs-string">&#x27;application/x-mpegURL&#x27;</span>) || audioElement.<span class="hljs-title function_">canPlayType</span>(<span class="hljs-string">&#x27;application/vnd.apple.mpegURL&#x27;</span>)) &#123;<br>                audioElement.<span class="hljs-property">src</span> = audio.<span class="hljs-property">url</span>;<br>            &#125;<br>            <span class="hljs-keyword">else</span> &#123;<br>                player.<span class="hljs-title function_">notice</span>(<span class="hljs-string">&#x27;Error: HLS is not supported.&#x27;</span>);<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;);<br></code></pre></td></tr></table></figure>
 
-<h2 id="Self-adapting-theme-according-to-cover"><a href="#Self-adapting-theme-according-to-cover" class="headerlink" title="Self-adapting theme according to cover"></a>Self-adapting theme according to cover</h2><p>It requires the library <a target="_blank" rel="noopener" href="https://github.com/lokesh/color-thief/blob/master/src/color-thief.js">color-thief</a>.</p>
+<h2 id="Self-adapting-theme-according-to-cover"><a href="#Self-adapting-theme-according-to-cover" class="headerlink" title="Self-adapting theme according to cover"></a>Self-adapting theme according to cover</h2><p>It requires the library <a href="https://github.com/lokesh/color-thief/blob/master/src/color-thief.js">color-thief</a>.</p>
 <div class="aplayer-wrap">
     <div id="aplayer8"><button class="docute-button load">Click to load player</div>
 </div>
@@ -629,9 +629,9 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> ap = <span class="hljs-keyword">new</span> <span class="hljs-title class_">APlayer</span>(&#123;<br>    <span class="hljs-attr">container</span>: <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;aplayer&#x27;</span>),<br>    <span class="hljs-attr">theme</span>: <span class="hljs-string">&#x27;#e9e9e9&#x27;</span>,<br>    <span class="hljs-attr">audio</span>: [&#123;<br>        <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;name1&#x27;</span>,<br>        <span class="hljs-attr">artist</span>: <span class="hljs-string">&#x27;artist1&#x27;</span>,<br>        <span class="hljs-attr">url</span>: <span class="hljs-string">&#x27;url1.mp3&#x27;</span>,<br>        <span class="hljs-attr">cover</span>: <span class="hljs-string">&#x27;cover1.jpg&#x27;</span><br>    &#125;, &#123;<br>        <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;name2&#x27;</span>,<br>        <span class="hljs-attr">artist</span>: <span class="hljs-string">&#x27;artist2&#x27;</span>,<br>        <span class="hljs-attr">url</span>: <span class="hljs-string">&#x27;url2.mp3&#x27;</span>,<br>        <span class="hljs-attr">cover</span>: <span class="hljs-string">&#x27;cover2.jpg&#x27;</span><br>    &#125;]<br>&#125;);<br><br><span class="hljs-keyword">const</span> colorThief = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ColorThief</span>();<br><span class="hljs-keyword">const</span> image = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Image</span>();<br><span class="hljs-keyword">const</span> xhr = <span class="hljs-keyword">new</span> <span class="hljs-title class_">XMLHttpRequest</span>();<br><span class="hljs-keyword">const</span> <span class="hljs-title function_">setTheme</span> = (<span class="hljs-params">index</span>) =&gt; &#123;<br>    <span class="hljs-keyword">if</span> (!ap.<span class="hljs-property">list</span>.<span class="hljs-property">audios</span>[index].<span class="hljs-property">theme</span>) &#123;<br>        xhr.<span class="hljs-property">onload</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<br>            <span class="hljs-keyword">let</span> coverUrl = <span class="hljs-variable constant_">URL</span>.<span class="hljs-title function_">createObjectURL</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">response</span>);<br>            image.<span class="hljs-property">onload</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<br>                <span class="hljs-keyword">let</span> color = colorThief.<span class="hljs-title function_">getColor</span>(image);<br>                ap.<span class="hljs-title function_">theme</span>(<span class="hljs-string">`rgb(<span class="hljs-subst">$&#123;color[<span class="hljs-number">0</span>]&#125;</span>, <span class="hljs-subst">$&#123;color[<span class="hljs-number">1</span>]&#125;</span>, <span class="hljs-subst">$&#123;color[<span class="hljs-number">2</span>]&#125;</span>)`</span>, index);<br>                <span class="hljs-variable constant_">URL</span>.<span class="hljs-title function_">revokeObjectURL</span>(coverUrl)<br>            &#125;;<br>            image.<span class="hljs-property">src</span> = coverUrl;<br>        &#125;<br>        xhr.<span class="hljs-title function_">open</span>(<span class="hljs-string">&#x27;GET&#x27;</span>, ap.<span class="hljs-property">list</span>.<span class="hljs-property">audios</span>[index].<span class="hljs-property">cover</span>, <span class="hljs-literal">true</span>);<br>        xhr.<span class="hljs-property">responseType</span> = <span class="hljs-string">&#x27;blob&#x27;</span>;<br>        xhr.<span class="hljs-title function_">send</span>();<br>    &#125;<br>&#125;;<br><span class="hljs-title function_">setTheme</span>(ap.<span class="hljs-property">list</span>.<span class="hljs-property">index</span>);<br>ap.<span class="hljs-title function_">on</span>(<span class="hljs-string">&#x27;listswitch&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">index</span>) =&gt;</span> &#123;<br>    <span class="hljs-title function_">setTheme</span>(index);<br>&#125;);<br></code></pre></td></tr></table></figure>
 
 <h2 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://www.jsdelivr.com/package/npm/aplayer">jsDelivr</a></li>
-<li><a target="_blank" rel="noopener" href="https://cdnjs.com/libraries/aplayer">cdnjs</a></li>
-<li><a target="_blank" rel="noopener" href="https://unpkg.com/aplayer/">unpkg</a></li>
+<li><a href="https://www.jsdelivr.com/package/npm/aplayer">jsDelivr</a></li>
+<li><a href="https://cdnjs.com/libraries/aplayer">cdnjs</a></li>
+<li><a href="https://unpkg.com/aplayer/">unpkg</a></li>
 </ul>
 <h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><h3 id="Why-can’t-player-autoplay-in-some-mobile-browsers"><a href="#Why-can’t-player-autoplay-in-some-mobile-browsers" class="headerlink" title="Why can’t player autoplay in some mobile browsers?"></a>Why can’t player autoplay in some mobile browsers?</h3><p>Most mobile browsers forbid audio autoplay, you wont be able to achieve it without hacks.</p>
 
