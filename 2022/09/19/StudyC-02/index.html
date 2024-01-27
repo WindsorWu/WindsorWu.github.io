@@ -1,0 +1,1013 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" href="/img/icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="WindsorWu">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="终于考完两种英语等级考试了，有大把的时间来填坑了~">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言程序设计 第二章">
+<meta property="og:url" content="https://blog.nekolin.top/2022/09/19/StudyC-02/index.html">
+<meta property="og:site_name" content="温莎酱部落格">
+<meta property="og:description" content="终于考完两种英语等级考试了，有大把的时间来填坑了~">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/19/20220922175023.png">
+<meta property="article:published_time" content="2022-09-19T12:05:00.000Z">
+<meta property="article:modified_time" content="2023-03-29T02:24:54.883Z">
+<meta property="article:author" content="WindsorWu">
+<meta property="article:tag" content="C&#x2F;C++">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/19/20220922175023.png">
+  
+  
+  
+  <title>C语言程序设计 第二章 - 温莎酱部落格</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/js/Aplayer/dist/APlayer.min.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"blog.nekolin.top","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":"9a2b4d30adc3d825fc137f3a49b91fa8","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"GlTO5PUvyhyFeieVukL3wFPT-MdYXbMMI","app_key":"3wEzCaufVke0tqpOmm9WyThe","server_url":null,"path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?9a2b4d30adc3d825fc137f3a49b91fa8";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 80vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>WindsorWu&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="https://status.nekolin.top/">
+                <i class="iconfont icon-codeforces"></i>
+                <span>监测</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/19/20220922175023.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="C语言程序设计 第二章"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-09-19 20:05" pubdate>
+          2022年9月19日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          27 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">C语言程序设计 第二章</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：6 个月前
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p> 终于考完两种英语等级考试了，有大把的时间来填坑了~</p>
+<span id="more"></span>
+
+<p>本文属于自用笔记，假如对于你有帮助的话，鄙人万分荣幸。若有补充，请在评论区留言~</p>
+<h1 id="第二章-算法"><a href="#第二章-算法" class="headerlink" title="第二章 算法"></a>第二章 算法</h1><h2 id="1、简单的算法举例"><a href="#1、简单的算法举例" class="headerlink" title="1、简单的算法举例"></a>1、简单的算法举例</h2><h3 id="【例2-1】求1×2×3×4×5"><a href="#【例2-1】求1×2×3×4×5" class="headerlink" title="【例2.1】求1×2×3×4×5"></a>【例2.1】求1×2×3×4×5</h3><h4 id="算法步骤"><a href="#算法步骤" class="headerlink" title="算法步骤"></a>算法步骤</h4><ol>
+<li>令p&#x3D;1，或写成1&#x3D;&gt;p(表示将1存放在变量p中)</li>
+<li>令i&#x3D;2，或写成2&#x3D;&gt;i(表示将2存放在变量i中)</li>
+<li>使p与i相乘，乘积仍放在变量p中，可表示为: p*i&#x3D;&gt;p</li>
+<li>使i的值加1，即i+1&#x3D;&gt;i</li>
+<li>如果i不大于5，返回重新执行3及其后的步骤4和5；否则，算法结束。最后得到p的值就是5!的值</li>
+</ol>
+<h4 id="若题目改为-求1×3×5×7×9×11"><a href="#若题目改为-求1×3×5×7×9×11" class="headerlink" title="若题目改为: 求1×3×5×7×9×11"></a>若题目改为: 求1×3×5×7×9×11</h4><h5 id="算法步骤-1"><a href="#算法步骤-1" class="headerlink" title="算法步骤"></a>算法步骤</h5><ol>
+<li>令p&#x3D;1，或写成1&#x3D;&gt;p(表示将1存放在变量p中)</li>
+<li>令<strong>i&#x3D;3</strong>，或写成<strong>3&#x3D;&gt;i</strong>(表示将<strong>3</strong>存放在变量i中)</li>
+<li>使p与i相乘，乘积仍放在变量p中，可表示为: p*i&#x3D;&gt;p</li>
+<li>使i的值加<strong>2</strong>，即<strong>i+2&#x3D;&gt;i</strong></li>
+<li><strong>如果i≤11，返回3；否则，结束。或者 若i＞11，结束；否则，返回3</strong></li>
+</ol>
+<h3 id="【例2-2】有50个学生，要求输出成绩在80分以上的学生的学号和成绩"><a href="#【例2-2】有50个学生，要求输出成绩在80分以上的学生的学号和成绩" class="headerlink" title="【例2.2】有50个学生，要求输出成绩在80分以上的学生的学号和成绩"></a>【例2.2】有50个学生，要求输出成绩在80分以上的学生的学号和成绩</h3><blockquote>
+<p>n：表示学生学号</p>
+<p>下标i：表示第几个学生</p>
+<p>n1：表示第一个学生的学号</p>
+<p>ni：表示第i个学生的学号</p>
+<p>g：表示学生的成绩</p>
+<p>g1：表示第一个学生的成绩</p>
+<p>gi：表示第i个学生的成绩</p>
+</blockquote>
+<h4 id="算法步骤-2"><a href="#算法步骤-2" class="headerlink" title="算法步骤"></a>算法步骤</h4><ol>
+<li>1&#x3D;&gt;i</li>
+<li>如果gi≥80，则输出ni和gi，否则不输出</li>
+<li>i+1&#x3D;&gt;i</li>
+<li>如果i≤50，返回到2，继续执行，否则，算法结束</li>
+</ol>
+<h3 id="【例2-3】判定2000—2500年中的每一年是否为闰年，并将结果输出"><a href="#【例2-3】判定2000—2500年中的每一年是否为闰年，并将结果输出" class="headerlink" title="【例2.3】判定2000—2500年中的每一年是否为闰年，并将结果输出"></a>【例2.3】判定2000—2500年中的每一年是否为闰年，并将结果输出</h3><h4 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h4><table>
+<thead>
+<tr>
+<th>年份尾号</th>
+<th>是否闰年</th>
+<th>是否能被某个数整除</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>01</td>
+<td>否</td>
+<td>year不能被4整除</td>
+</tr>
+<tr>
+<td>02</td>
+<td>是</td>
+<td>year被4整除，但不能被100整除</td>
+</tr>
+<tr>
+<td>03</td>
+<td>否</td>
+<td>year被100整除，又能被400整除</td>
+</tr>
+<tr>
+<td>04</td>
+<td>否</td>
+<td>其他</td>
+</tr>
+</tbody></table>
+<h4 id="算法步骤-3"><a href="#算法步骤-3" class="headerlink" title="算法步骤"></a>算法步骤</h4><ol>
+<li>2000&#x3D;&gt;year</li>
+<li>若year不能被4整除，则输出year 的值和“不是闰年”。然后转到6，检查下一个年份</li>
+<li>若year能被4整除，不能被100整除，则输出year的值和“是闰年”。然后转到6</li>
+<li>若year能被400整除，输出year的值和“是闰年” ，然后转到6</li>
+<li>输出year的值和“不是闰年”</li>
+<li>year+1&#x3D;&gt;year</li>
+<li>当year≤2500时，转2继续执行，否则算法停止</li>
+</ol>
+<h3 id="【例2-4】求-1-1-x2F-2-1-x2F-3-1-x2F-4-⋯-1-x2F-99-1-x2F-100"><a href="#【例2-4】求-1-1-x2F-2-1-x2F-3-1-x2F-4-⋯-1-x2F-99-1-x2F-100" class="headerlink" title="【例2.4】求 1- 1&#x2F;2 + 1&#x2F;3 - 1&#x2F;4 + ⋯ + 1&#x2F;99 - 1&#x2F;100"></a>【例2.4】求 1- 1&#x2F;2 + 1&#x2F;3 - 1&#x2F;4 + ⋯ + 1&#x2F;99 - 1&#x2F;100</h3><blockquote>
+<p>sign：表示当前项的数值符号</p>
+<p>term：表示当前项的值</p>
+<p>sum：表示当前项的累加和</p>
+<p>deno：表示当前项的分母</p>
+</blockquote>
+<h4 id="算法步骤-4"><a href="#算法步骤-4" class="headerlink" title="算法步骤"></a>算法步骤</h4><ol>
+<li>x graph TD;​A([开始])​B[问题分析]​C[设计算法]​D[编写程序]​E[对源程序进行编辑, 编译和连接]​F[运行程序分析结果]​G[编写程序文档]​H([结束])​A –&gt; B –&gt; C –&gt; D –&gt; E –&gt; F –&gt; G –&gt; Hmermaid</li>
+<li>sum&#x3D;1</li>
+<li>deno&#x3D;2</li>
+<li>sign&#x3D;(-1)^sign</li>
+<li>term&#x3D;sign^(1&#x2F;deno)</li>
+<li>sum&#x3D;sum+term</li>
+<li>deno&#x3D;deno+1</li>
+<li>若deno≤100返回4；否则算法结束</li>
+</ol>
+<h3 id="【例2-5】给出一个大于或等于3的正整数，判断它是不是一个素数"><a href="#【例2-5】给出一个大于或等于3的正整数，判断它是不是一个素数" class="headerlink" title="【例2.5】给出一个大于或等于3的正整数，判断它是不是一个素数"></a>【例2.5】给出一个大于或等于3的正整数，判断它是不是一个素数</h3><h4 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h4><p>所谓素数，是指除了1和该数本身之外，不能被其他任何整数整除的数。</p>
+<h4 id="算法步骤-5"><a href="#算法步骤-5" class="headerlink" title="算法步骤"></a>算法步骤</h4><ol>
+<li><p>输入n的值</p>
+</li>
+<li><p>i&#x3D;2（i作为除数）</p>
+</li>
+<li><p>n被i除，得余数r</p>
+</li>
+<li><p>如果r&#x3D;0，表示n能被i整除，则输出n“不是素数”，算法结束；否则执行5</p>
+</li>
+<li><p>i+1&#x3D;&gt;i</p>
+</li>
+<li><p>如果i≤√𝑛，返回3；否则输出n的值以及“是素数”，然后结束</p>
+</li>
+</ol>
+<blockquote>
+<p>实际上，n不必被2 ~ (n-1)之间的整数除，只须被2 ~ n&#x2F;2间整数除即可，甚至只须被2~√𝑛<br>之间的整数除即可。</p>
+</blockquote>
+<h2 id="2、算法的特性"><a href="#2、算法的特性" class="headerlink" title="2、算法的特性"></a>2、算法的特性</h2><ul>
+<li><strong>有穷性</strong>：一个算法应包含有限的操作步骤，而不能是无限的</li>
+<li><strong>确定性</strong>：算法中的每一个步骤都应当是确定的，而不应当是含糊的、模棱两可的</li>
+<li><strong>有零个或多个输入</strong>：所谓输入是指在执行算法时需要从外界取得必要的信息</li>
+<li><strong>有一个或多个输出</strong>：算法的目的是为了求解，“解” 就是输出</li>
+<li><strong>有效性</strong>：算法中的每一个步骤都应当能有效地执行，并得到确定的结果</li>
+</ul>
+<h2 id="3、怎么表示一个算法"><a href="#3、怎么表示一个算法" class="headerlink" title="3、怎么表示一个算法"></a>3、怎么表示一个算法</h2><h3 id="用流程图表示算法"><a href="#用流程图表示算法" class="headerlink" title="用流程图表示算法"></a>用流程图表示算法</h3><h4 id="【例2-6】将例2-1的算法用流程图表示。求1×2×3×4×5。"><a href="#【例2-6】将例2-1的算法用流程图表示。求1×2×3×4×5。" class="headerlink" title="【例2.6】将例2.1的算法用流程图表示。求1×2×3×4×5。"></a>【例2.6】将例2.1的算法用流程图表示。求1×2×3×4×5。</h4><pre><code class=" mermaid">graph TD;
+
+A([开始])
+
+B[1=&gt;p]
+
+C[2=&gt;i]
+
+D[p*i=&gt;p]
+
+E[i+1=&gt;i]
+
+F&#123;i&gt;5&#125;
+
+G[/输出p/]
+
+H([结束])
+
+A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --Y--&gt; G --&gt; H ; F --N--&gt; D
+</code></pre>
+
+<h4 id="传统流程图的弊端"><a href="#传统流程图的弊端" class="headerlink" title="传统流程图的弊端"></a>传统流程图的弊端</h4><p>看图就完事了，一团乱麻</p>
+<img src="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/19/image-20220922172115835.png" srcset="/img/loading.gif" lazyload style="zoom:90%;" />
+
+
+
+<h4 id="流程图三种基本结构"><a href="#流程图三种基本结构" class="headerlink" title="流程图三种基本结构"></a>流程图三种基本结构</h4><h5 id="顺序结构"><a href="#顺序结构" class="headerlink" title="顺序结构"></a>顺序结构</h5><pre><code class=" mermaid">graph TD;
+A--&gt;B
+</code></pre>
+
+<h5 id="选择结构"><a href="#选择结构" class="headerlink" title="选择结构"></a>选择结构</h5><pre><code class=" mermaid">graph TD;
+A&#123;P&#125;--真--&gt;B[A];A--假--&gt;C[B];
+</code></pre>
+
+<h5 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h5><pre><code class=" mermaid">graph TD;
+A&#123;P&#125;--真--&gt;B[A];B--&gt;A;A--假--&gt;C[B]
+</code></pre>
+
+
+
+<h3 id="用N-S流程图表示算法"><a href="#用N-S流程图表示算法" class="headerlink" title="用N-S流程图表示算法"></a>用N-S流程图表示算法</h3><img src="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/19/image-20220922173500235.png" srcset="/img/loading.gif" lazyload style="zoom:80%;" />
+
+
+
+<h3 id="用伪代码表示算法"><a href="#用伪代码表示算法" class="headerlink" title="用伪代码表示算法"></a>用伪代码表示算法</h3><h4 id="【例2-7】求5-，用伪代码表示。"><a href="#【例2-7】求5-，用伪代码表示。" class="headerlink" title="【例2.7】求5!，用伪代码表示。"></a>【例2.7】求5!，用伪代码表示。</h4><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs dart">begin	(算法开始)<br>    <span class="hljs-number">1</span>=&gt;p<br>    <span class="hljs-number">2</span>=&gt;I<br>    <span class="hljs-keyword">while</span> i≤<span class="hljs-number">5</span><br>    &#123;    p*i=&gt;p<br>         i+<span class="hljs-number">1</span>=&gt;I<br>    &#125;<br>    <span class="hljs-built_in">print</span> p<br>end	(算法结束)<br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="【例2-8】求-1−1-x2F-2-1-x2F-3−1-x2F-4-⋯-1-x2F-99−1-x2F-100，用伪代码表示。"><a href="#【例2-8】求-1−1-x2F-2-1-x2F-3−1-x2F-4-⋯-1-x2F-99−1-x2F-100，用伪代码表示。" class="headerlink" title="【例2.8】求 1−1&#x2F;2+1&#x2F;3−1&#x2F;4+⋯+1&#x2F;99−1&#x2F;100，用伪代码表示。"></a>【例2.8】求 1−1&#x2F;2+1&#x2F;3−1&#x2F;4+⋯+1&#x2F;99−1&#x2F;100，用伪代码表示。</h4><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs coq">begin	(算法开始)<br>    <span class="hljs-number">1</span>=&gt;sign<br>    <span class="hljs-number">1</span>=&gt;<span class="hljs-built_in">sum</span><br>    <span class="hljs-number">2</span>=&gt;deno<br>    while deno≤<span class="hljs-number">100</span><br>    &#123;    (<span class="hljs-number">-1</span>)*sign=&gt;sign<br>         sign*(<span class="hljs-number">1</span>/deno)=&gt;term<br>         <span class="hljs-built_in">sum</span>+term=&gt;<span class="hljs-built_in">sum</span><br>         deno+<span class="hljs-number">1</span>=&gt;deno<br>    &#125;<br>    print <span class="hljs-built_in">sum</span><br><span class="hljs-keyword">end</span>	(算法结束)<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="用计算机语言表示算法"><a href="#用计算机语言表示算法" class="headerlink" title="用计算机语言表示算法"></a>用计算机语言表示算法</h3><h4 id="【例2-9】将例2-7表示的算法（求5-）用C语言表示。"><a href="#【例2-9】将例2-7表示的算法（求5-）用C语言表示。" class="headerlink" title="【例2.9】将例2.7表示的算法（求5!）用C语言表示。"></a>【例2.9】将例2.7表示的算法（求5!）用C语言表示。</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>&#123;<br>	<span class="hljs-type">int</span> i,p;<br>	p=<span class="hljs-number">1</span>;<br>	i=<span class="hljs-number">2</span>;<br>	<span class="hljs-keyword">while</span>(i&lt;=<span class="hljs-number">5</span>)<br>		&#123;<br>			p=p*i;<br>			i=i+<span class="hljs-number">1</span>;<br>		&#125;<br>	<span class="hljs-built_in">printf</span>(″%d\n″,p);<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="【例2-10】将例2-8表示的算法求1-1-x2F-2-1-x2F-3-1-x2F-4-⋯-1-x2F-99-1-x2F-100的值用C语言表示。"><a href="#【例2-10】将例2-8表示的算法求1-1-x2F-2-1-x2F-3-1-x2F-4-⋯-1-x2F-99-1-x2F-100的值用C语言表示。" class="headerlink" title="【例2.10】将例2.8表示的算法求1-1&#x2F;2+1&#x2F;3-1&#x2F;4+⋯+1&#x2F;99-1&#x2F;100的值用C语言表示。"></a>【例2.10】将例2.8表示的算法求1-1&#x2F;2+1&#x2F;3-1&#x2F;4+⋯+1&#x2F;99-1&#x2F;100的值用C语言表示。</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>&#123;<br>	<span class="hljs-type">int</span> sign=<span class="hljs-number">1</span>;<br>	<span class="hljs-type">double</span> deno=<span class="hljs-number">2.0</span>,sum=<span class="hljs-number">1.0</span>,term;<br>	<span class="hljs-keyword">while</span>(deno&lt;=<span class="hljs-number">100</span>)<br>		&#123;<br>			sign=-sign;<br>			term=sign/deno;<br>			sum=sum+term;<br>			deno=deno+<span class="hljs-number">1</span>;<br>		&#125;<br>	<span class="hljs-built_in">printf</span>(″%f\n″,sum);<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="4、总结"><a href="#4、总结" class="headerlink" title="4、总结"></a>4、总结</h2><ol>
+<li>算法 + 数据结构 &#x3D; 程序。程序设计有4个要素：算法是灵魂，数据结构是加工对象，语言是工具，编程采用结构化程序设计方法。算法是解题方法的精确描述。</li>
+<li>表述算法可以用：自然语言、传统流程图、结构化流程图、伪代码和计算机语言等工具。</li>
+<li>结构化程序的三种基本结构是：顺序结构、选择结构和循环结构。由三种基本结构可以构成一个结构化程序。</li>
+<li>写出程序只是用计算机语言表示了算法，只有运行程序才是实现了算法。</li>
+<li>对于规模较大任务，应当采取结构化程序设计方法，其要要点是：自顶向下，逐步细化。在编程时还要注意用模块化设计和结构化编程。</li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AC%94%E8%AE%B0/" class="category-chain-item">笔记</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/C-C/">#C/C++</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>C语言程序设计 第二章</div>
+      <div>https://blog.nekolin.top/2022/09/19/StudyC-02/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>WindsorWu</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年9月19日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-nc"></i>
+                  </span>
+                </a>
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/10/09/StudyC-03/" title="C语言程序设计 第三章">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">C语言程序设计 第三章</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/09/08/StudyC-01/" title="C语言程序设计 第一章">
+                        <span class="hidden-mobile">C语言程序设计 第一章</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://lib.baomitu.com/waline/2.15.7/waline.min.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/waline/2.15.7/waline.min.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://waline.nekolin.top/","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('mermaid' in window) {
+        mermaid.init();
+      }
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+      <div class="col-lg-7 mx-auto nopadding-x-md">
+        <div class="container custom mx-auto">
+           <!--aplayer--> <div id="aplayer"></div> 
+        </div>
+      </div>
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      萌ICP备20232523号
+    </a>
+  </span>
+  
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/Aplayer/dist/APlayer.min.js"></script>
+<script src="/js/useaplayer.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
