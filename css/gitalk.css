@@ -7,7 +7,6 @@
 /* variables - calculated */
 /* styles */
 .gt-container {
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-size: 16px;
   /* loader */
@@ -22,7 +21,6 @@
   /* comment */
 }
 .gt-container * {
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 .gt-container a {
@@ -75,7 +73,6 @@
 }
 .gt-container .gt-spinner::before {
   content: '';
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   position: absolute;
   top: 3px;
@@ -86,13 +83,11 @@
   border-radius: 50%;
   border: 1px solid #fff;
   border-top-color: #6190e8;
-  -webkit-animation: gt-kf-rotate 0.6s linear infinite;
   animation: gt-kf-rotate 0.6s linear infinite;
 }
 .gt-container .gt-loader {
   position: relative;
   border: 1px solid #999;
-  -webkit-animation: ease gt-kf-rotate 1.5s infinite;
   animation: ease gt-kf-rotate 1.5s infinite;
   display: inline-block;
   font-style: normal;
@@ -291,13 +286,9 @@
 }
 .gt-container .gt-header {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 .gt-container .gt-header-comment {
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
   flex: 1;
   margin-left: 1.25em;
 }
@@ -309,7 +300,6 @@
 .gt-container .gt-header-textarea {
   padding: 0.75em;
   display: block;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
   min-height: 5.125em;
@@ -321,7 +311,6 @@
   resize: vertical;
   background-color: #f6f6f6;
   outline: none;
-  -webkit-transition: all 0.25s ease;
   transition: all 0.25s ease;
 }
 .gt-container .gt-header-textarea:hover {
@@ -393,7 +382,6 @@
   top: 0;
   background: #000;
   opacity: 0.6;
-  -webkit-transition: opacity 0.3s, bottom 0s;
   transition: opacity 0.3s, bottom 0s;
   z-index: 9999;
 }
@@ -413,23 +401,17 @@
 .gt-container .gt-comment {
   position: relative;
   padding: 0.625em 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 .gt-container .gt-comment-content {
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
   flex: 1;
   margin-left: 1.25em;
   padding: 0.75em 1em;
   background-color: #f9f9f9;
   overflow: auto;
-  -webkit-transition: all ease 0.25s;
   transition: all ease 0.25s;
 }
 .gt-container .gt-comment-content:hover {
-  -webkit-box-shadow: 0 0.625em 3.75em 0 #f4f4f4;
   box-shadow: 0 0.625em 3.75em 0 #f4f4f4;
 }
 @media (max-width: 479px) {
@@ -524,23 +506,11 @@
 .gt-container .gt-comment-admin .gt-comment-content {
   background-color: #f6f9fe;
 }
-@-webkit-keyframes gt-kf-rotate {
-  0% {
-    -webkit-transform: rotate(0);
-    transform: rotate(0);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
 @keyframes gt-kf-rotate {
   0% {
-    -webkit-transform: rotate(0);
     transform: rotate(0);
   }
   100% {
-    -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }

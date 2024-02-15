@@ -1,0 +1,18 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "温莎酱部落格 • All posts by \"战网\" tag",
+    "description": "",
+    "home_page_url": "https://blog.nekolin.top",
+    "items": [
+        {
+            "id": "https://blog.nekolin.top/2023/01/24/2008-2023blizzardCN/",
+            "url": "https://blog.nekolin.top/2023/01/24/2008-2023blizzardCN/",
+            "title": "再见，国服。再见，我的青春。",
+            "date_published": "2023-01-23T16:00:00.000Z",
+            "content_html": "<p>再见，守望先锋！ 再见，炉石传说！ 再见，暗黑破坏神！ 再见，魔兽世界！</p>\n<span id=\"more\"></span>\n<p><img src=\"https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2023/01/24/nametag.png\" alt=\"\"></p>\n<p><img src=\"https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2023/01/24/index.png\" alt=\"\"></p>\n<p><img src=\"https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2023/01/24/refund.png\" alt=\"\"></p>\n",
+            "tags": [
+                "战网"
+            ]
+        }
+    ]
+}
