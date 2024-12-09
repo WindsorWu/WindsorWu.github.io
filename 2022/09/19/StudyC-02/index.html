@@ -55,7 +55,7 @@
 <meta property="og:image" content="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/19/image-20220922172115835.png">
 <meta property="og:image" content="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/19/image-20220922173500235.png">
 <meta property="article:published_time" content="2022-09-19T12:05:00.000Z">
-<meta property="article:modified_time" content="2024-08-31T14:26:59.472Z">
+<meta property="article:modified_time" content="2024-12-09T06:42:25.325Z">
 <meta property="article:author" content="WindsorWu">
 <meta property="article:tag" content="C&#x2F;C++">
 <meta name="twitter:card" content="summary_large_image">
@@ -295,18 +295,39 @@
 <li><strong>有一个或多个输出</strong>：算法的目的是为了求解，“解” 就是输出</li>
 <li><strong>有效性</strong>：算法中的每一个步骤都应当能有效地执行，并得到确定的结果</li>
 </ul>
-<h2 id="3、怎么表示一个算法"><a href="#3、怎么表示一个算法" class="headerlink" title="3、怎么表示一个算法"></a>3、怎么表示一个算法</h2><h3 id="用流程图表示算法"><a href="#用流程图表示算法" class="headerlink" title="用流程图表示算法"></a>用流程图表示算法</h3><h4 id="【例2-6】将例2-1的算法用流程图表示。求1×2×3×4×5。"><a href="#【例2-6】将例2-1的算法用流程图表示。求1×2×3×4×5。" class="headerlink" title="【例2.6】将例2.1的算法用流程图表示。求1×2×3×4×5。"></a>【例2.6】将例2.1的算法用流程图表示。求1×2×3×4×5。</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs mermaid">graph TD;<br><br>A([开始])<br><br>B[1=&gt;p]<br><br>C[2=&gt;i]<br><br>D[p*i=&gt;p]<br><br>E[i+1=&gt;i]<br><br>F&#123;i&gt;5&#125;<br><br>G[/输出p/]<br><br>H([结束])<br><br>A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --Y--&gt; G --&gt; H ; F --N--&gt; D<br></code></pre></td></tr></table></figure>
+<h2 id="3、怎么表示一个算法"><a href="#3、怎么表示一个算法" class="headerlink" title="3、怎么表示一个算法"></a>3、怎么表示一个算法</h2><h3 id="用流程图表示算法"><a href="#用流程图表示算法" class="headerlink" title="用流程图表示算法"></a>用流程图表示算法</h3><h4 id="【例2-6】将例2-1的算法用流程图表示。求1×2×3×4×5。"><a href="#【例2-6】将例2-1的算法用流程图表示。求1×2×3×4×5。" class="headerlink" title="【例2.6】将例2.1的算法用流程图表示。求1×2×3×4×5。"></a>【例2.6】将例2.1的算法用流程图表示。求1×2×3×4×5。</h4><pre class="mermaid">graph TD;
+
+A([开始])
+
+B[1=>p]
+
+C[2=>i]
+
+D[p*i=>p]
+
+E[i+1=>i]
+
+F{i>5}
+
+G[/输出p/]
+
+H([结束])
+
+A --> B --> C --> D --> E --> F --Y--> G --> H ; F --N--> D</pre>
 
 <h4 id="传统流程图的弊端"><a href="#传统流程图的弊端" class="headerlink" title="传统流程图的弊端"></a>传统流程图的弊端</h4><p>看图就完事了，一团乱麻</p>
 <img src="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/19/image-20220922172115835.png" class="lazy" data-srcset="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/19/image-20220922172115835.png" srcset="/img/loading.gif" style="zoom:90%;" />
 
 
 
-<h4 id="流程图三种基本结构"><a href="#流程图三种基本结构" class="headerlink" title="流程图三种基本结构"></a>流程图三种基本结构</h4><h5 id="顺序结构"><a href="#顺序结构" class="headerlink" title="顺序结构"></a>顺序结构</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mermaid">graph TD;<br>A--&gt;B<br></code></pre></td></tr></table></figure>
+<h4 id="流程图三种基本结构"><a href="#流程图三种基本结构" class="headerlink" title="流程图三种基本结构"></a>流程图三种基本结构</h4><h5 id="顺序结构"><a href="#顺序结构" class="headerlink" title="顺序结构"></a>顺序结构</h5><pre class="mermaid">graph TD;
+A-->B</pre>
 
-<h5 id="选择结构"><a href="#选择结构" class="headerlink" title="选择结构"></a>选择结构</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mermaid">graph TD;<br>A&#123;P&#125;--真--&gt;B[A];A--假--&gt;C[B];<br></code></pre></td></tr></table></figure>
+<h5 id="选择结构"><a href="#选择结构" class="headerlink" title="选择结构"></a>选择结构</h5><pre class="mermaid">graph TD;
+A{P}--真-->B[A];A--假-->C[B];</pre>
 
-<h5 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mermaid">graph TD;<br>A&#123;P&#125;--真--&gt;B[A];B--&gt;A;A--假--&gt;C[B]<br></code></pre></td></tr></table></figure>
+<h5 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h5><pre class="mermaid">graph TD;
+A{P}--真-->B[A];B-->A;A--假-->C[B]</pre>
 
 
 
@@ -358,7 +379,7 @@
         
     </div>
  
-    <div class="post-footer__meta"><p>更新于 2024-08-31</p></div> 
+    <div class="post-footer__meta"><p>更新于 2024-12-09</p></div> 
     <div class="post-entry__tags"><a href="/tags/C-C/" class="post-tags__link button"># C/C++</a></div> 
 </article>
 
@@ -480,10 +501,65 @@
 
  
 
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
  
 
  
 
+
+    <script src='https://cdn.jsdelivr.net/npm/mermaid@8.10.2/dist/mermaid.min.js'></script>
+    <script>
+            mermaid.initialize(JSON.stringify(''));
+    </script>
  
 
  
