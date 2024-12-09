@@ -35,7 +35,7 @@
     <!-- meta -->
 
 
-<title>C语言程序设计 第四章 | 温莎酱部落格</title>
+<title>C语言程序设计 第四章 | 温莎酱部落格</title><meta name="robots" content="noindex">
 
 
     <meta name="keywords" content="C/C++">
@@ -54,7 +54,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/12/03/IF1.jpg">
 <meta property="article:published_time" content="2022-12-03T07:27:00.000Z">
-<meta property="article:modified_time" content="2024-12-09T06:19:52.251Z">
+<meta property="article:modified_time" content="2024-12-09T06:50:36.965Z">
 <meta property="article:author" content="WindsorWu">
 <meta property="article:tag" content="C&#x2F;C++">
 <meta name="twitter:card" content="summary_large_image">
@@ -316,7 +316,7 @@
 </ol>
 <h3 id="Switch语句举例"><a href="#Switch语句举例" class="headerlink" title="Switch语句举例"></a>Switch语句举例</h3><h5 id="【例4-7】用switch语句处理菜单命令。在许多应用程序中，用菜单对流程进行控制，例如从键盘输入一个′A′或′a′字符，就会执行A操作，输入一个′B′或′b′字符，就会执行B操作。"><a href="#【例4-7】用switch语句处理菜单命令。在许多应用程序中，用菜单对流程进行控制，例如从键盘输入一个′A′或′a′字符，就会执行A操作，输入一个′B′或′b′字符，就会执行B操作。" class="headerlink" title="【例4.7】用switch语句处理菜单命令。在许多应用程序中，用菜单对流程进行控制，例如从键盘输入一个′A′或′a′字符，就会执行A操作，输入一个′B′或′b′字符，就会执行B操作。"></a>【例4.7】用switch语句处理菜单命令。在许多应用程序中，用菜单对流程进行控制，例如从键盘输入一个′A′或′a′字符，就会执行A操作，输入一个′B′或′b′字符，就会执行B操作。</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>&#123;	<span class="hljs-type">void</span> <span class="hljs-title function_">action1</span><span class="hljs-params">(<span class="hljs-type">int</span>,<span class="hljs-type">int</span>)</span>,<span class="hljs-title function_">action2</span><span class="hljs-params">(<span class="hljs-type">int</span>,<span class="hljs-type">int</span>)</span>;	<span class="hljs-comment">//函数声明</span><br>	<span class="hljs-type">char</span> ch;<br>	<span class="hljs-type">int</span> a=<span class="hljs-number">15</span>,b=<span class="hljs-number">23</span>;<br>	ch=getchar();<br>	<span class="hljs-keyword">switch</span>(ch)<br>	&#123; 	<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;a&#x27;</span>:<br>		<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;A&#x27;</span>: action1(a,b);<span class="hljs-keyword">break</span>;		<span class="hljs-comment">//调用action1函数，执行A操作</span><br>		<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;b&#x27;</span>:<br>		<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;B&#x27;</span>: action2(a,b);<span class="hljs-keyword">break</span>;		<span class="hljs-comment">//调用action2函数，执行B操作</span><br>			⋮<br>		<span class="hljs-keyword">default</span>:  <span class="hljs-built_in">putchar</span>(<span class="hljs-string">&#x27;\a&#x27;</span>);			 <span class="hljs-comment">//如果输入其他字符，发出警告</span><br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><span class="hljs-type">void</span> <span class="hljs-title function_">action1</span><span class="hljs-params">(<span class="hljs-type">int</span> x,<span class="hljs-type">int</span> y)</span>		<span class="hljs-comment">//执行加法的函数</span><br>&#123;	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;x+y=%d\n&quot;</span>,x+y);<br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">action2</span><span class="hljs-params">(<span class="hljs-type">int</span> x,<span class="hljs-type">int</span> y)</span>		<span class="hljs-comment">//执行乘法的函数</span><br>&#123;	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;x*y=%d\n&quot;</span>,x*y);<br>&#125;<br></code></pre></td></tr></table></figure>
 
-
+<!-- flag of hidden posts -->
     </div>
     
     <div class="post__license">
@@ -341,43 +341,6 @@
     <div class="post-entry__tags"><a href="/tags/C-C/" class="post-tags__link button"># C/C++</a></div> 
 </article>
 
-
-    <div class="nav">
-        <div class="nav__prev">
-            
-                <a href="/2022/12/17/overwatch-world-cup-to-return-in-2023/" class="nav__link">
-                    <div>
-                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
-                    </div>
-                    <div>
-                        <div class="nav__label">
-                            上一篇
-                        </div>
-                        <div class="nav__title">
-                            《守望先锋世界杯》将于2023年回归
-                        </div>
-                    </div>
-                </a>
-            
-        </div>
-        <div class="nav__next">
-            
-                <a href="/2022/12/02/contenders-pacific-showdown-to-expand-competition-across-east-region/" class="nav__link">
-                    <div>
-                        <div class="nav__label">
-                            下一篇
-                        </div>
-                        <div class="nav__title">
-                            守望先锋太平洋挑战赛将掀起整个东部赛区的竞争
-                        </div>
-                    </div>
-                    <div>
-                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
-                    </div>
-                </a>
-            
-        </div>
-    </div>
 
 
 
