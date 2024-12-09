@@ -59,8 +59,9 @@
 <meta property="og:image" content="https://img2020.cnblogs.com/blog/2579098/202111/2579098-20211126233202207-1856636576.gif">
 <meta property="og:image" content="https://img2020.cnblogs.com/blog/2579098/202111/2579098-20211126233642533-266046377.gif">
 <meta property="og:image" content="https://img2020.cnblogs.com/blog/2579098/202111/2579098-20211126233929885-722384010.png">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/816762/202112/816762-20211224142642097-1601129376.gif">
 <meta property="article:published_time" content="2024-12-07T14:10:00.000Z">
-<meta property="article:modified_time" content="2024-12-08T15:18:24.704Z">
+<meta property="article:modified_time" content="2024-12-09T06:12:56.966Z">
 <meta property="article:author" content="WindsorWu">
 <meta property="article:tag" content="C&#x2F;C++">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,11 +223,22 @@
 <p><img src="https://img2020.cnblogs.com/blog/2579098/202111/2579098-20211126233929885-722384010.png" class="lazy" data-srcset="https://img2020.cnblogs.com/blog/2579098/202111/2579098-20211126233929885-722384010.png" srcset="/img/loading.gif"></p>
 <h4 id="5-哈夫曼树及哈夫曼编码-译码"><a href="#5-哈夫曼树及哈夫曼编码-译码" class="headerlink" title="5. 哈夫曼树及哈夫曼编码&#x2F;译码"></a>5. 哈夫曼树及哈夫曼编码&#x2F;译码</h4><p><em>P141 2（3）</em><br> 设一个权集W&#x3D;{5，2，9，11，8，3， 7}，请画出相应的Huffman树,并计算它的带权路径长度WPL。</p>
 <h4 id="6-图的两种存储：邻接表、邻接矩阵（注意区分图和网的表示方法差别）"><a href="#6-图的两种存储：邻接表、邻接矩阵（注意区分图和网的表示方法差别）" class="headerlink" title="6. 图的两种存储：邻接表、邻接矩阵（注意区分图和网的表示方法差别）"></a>6. 图的两种存储：邻接表、邻接矩阵（注意区分图和网的表示方法差别）</h4><p><em>P182 2（1）（2）</em></p>
+<p>有向图：邻接表、邻接矩阵看指出（出度）</p>
+<p>无向网：邻接表无向看成双向、邻接矩阵带权</p>
 <h4 id="7-图的两种遍历：DFS和BFS"><a href="#7-图的两种遍历：DFS和BFS" class="headerlink" title="7. 图的两种遍历：DFS和BFS"></a>7. 图的两种遍历：DFS和BFS</h4><p><em>P183 2（3）</em></p>
+<p><strong>深度优先遍历DFS</strong>：主要思路是从图中一个未访问的顶点 V 开始，沿着一条路一直走到底，然后从这条路尽头的节点回退到上一个节点，再从另一条路开始走到底…</p>
+<p><strong>广度优先遍历BFS</strong>：先遍历第一层(节点 1)，再遍历第二层(节点 2，3，4)，第三层(5，6，7，8)，第四层(9，10)</p>
+<p><img src="https://img2020.cnblogs.com/blog/816762/202112/816762-20211224142642097-1601129376.gif" class="lazy" data-srcset="https://img2020.cnblogs.com/blog/816762/202112/816762-20211224142642097-1601129376.gif" srcset="/img/loading.gif"></p>
 <h4 id="8-最小生成树（prim算法、kruskal算法）"><a href="#8-最小生成树（prim算法、kruskal算法）" class="headerlink" title="8. 最小生成树（prim算法、kruskal算法）"></a>8. 最小生成树（prim算法、kruskal算法）</h4><p> <em>P182 2（2）（3）</em></p>
+<p><strong>普里姆算法</strong>（Prim算法）不但包括了连通图里的所有顶点，且其所有边的权值之和亦为最小。</p>
+<p><strong>Kruskal算法</strong>在图中存在相同权值的边时也有效，不算顶点。</p>
 <h4 id="9-折半查找及决策树"><a href="#9-折半查找及决策树" class="headerlink" title="9. 折半查找及决策树"></a>9. 折半查找及决策树</h4><p><em>P224 2(1)</em></p>
+<p>顺序存储、有序存放</p>
 <h4 id="10-二叉排序树的构造、插入、删除"><a href="#10-二叉排序树的构造、插入、删除" class="headerlink" title="10. 二叉排序树的构造、插入、删除"></a>10. 二叉排序树的构造、插入、删除</h4><p>对于给定结点的数据集合D&#x3D;{1，11，5，8，3，10，7，13，9}<br> （1）依次取出D中各数据，构成一棵二叉排序树BT。<br> （2）求等概率情况下的平均查找长度ASL。<br> （3）画出在二叉排序树BT中删除“11”后的树的结构。 </p>
-<h4 id="11-散列表查找-冲突处理与表构造"><a href="#11-散列表查找-冲突处理与表构造" class="headerlink" title="11. 散列表查找-冲突处理与表构造"></a>11. 散列表查找-冲突处理与表构造</h4><h4 id="12-散列表查找-查找成功与失败的ASL"><a href="#12-散列表查找-查找成功与失败的ASL" class="headerlink" title="12. 散列表查找-查找成功与失败的ASL"></a>12. 散列表查找-查找成功与失败的ASL</h4><p> <em>P225 2（5）（6）</em></p>
+<h4 id="11-散列表查找-冲突处理与表构造"><a href="#11-散列表查找-冲突处理与表构造" class="headerlink" title="11. 散列表查找-冲突处理与表构造"></a>11. 散列表查找-冲突处理与表构造</h4><p><strong>Hi &#x3D; (Hash(key) + di) mod m，（1 ≤ i ≤ m）</strong></p>
+<h5 id="线性探测法"><a href="#线性探测法" class="headerlink" title="线性探测法"></a>线性探测法</h5><p>其中，m为散列表长度，<strong>di &#x3D; i（i为1,2，…，m-1 线性序列）</strong></p>
+<h5 id="二次探测法"><a href="#二次探测法" class="headerlink" title="二次探测法"></a><strong>二次探测法</strong></h5><p>增量序列di为12，-12，22，-22，…，q2 二次序列</p>
+<h4 id="12-散列表查找-查找成功与失败的ASL"><a href="#12-散列表查找-查找成功与失败的ASL" class="headerlink" title="12. 散列表查找-查找成功与失败的ASL"></a>12. 散列表查找-查找成功与失败的ASL</h4><p> <em>P225 2（5）（6）</em></p>
 <p>给定结点的关键字序列为：19，14，23，1，68，20，84，27，55，11，10，79。设散列表的长度为13，散列函数为：H（K）&#x3D;K Mod 13。试画出线性探测再散列解决冲突时所构造的散列表，并计算平均查找长度。</p>
 <table>
 <thead>
@@ -262,6 +274,10 @@
 <td></td>
 </tr>
 </tbody></table>
+<h5 id="线性探测法查找成功"><a href="#线性探测法查找成功" class="headerlink" title="线性探测法查找成功"></a>线性探测法查找成功</h5><p>$$<br>\frac12(1+\frac1{1-α})<br>$$</p>
+<h5 id="线性探测法查找失败"><a href="#线性探测法查找失败" class="headerlink" title="线性探测法查找失败"></a>线性探测法查找失败</h5><p>$$<br>\frac12(1+\frac1{(1-α)^2})<br>$$</p>
+<h5 id="二次探测法查找成功"><a href="#二次探测法查找成功" class="headerlink" title="二次探测法查找成功"></a>二次探测法查找成功</h5><p>$$<br>-\frac1α\ln{(1-α)}<br>$$</p>
+<h5 id="二次探测法查找失败"><a href="#二次探测法查找失败" class="headerlink" title="二次探测法查找失败"></a>二次探测法查找失败</h5><p>$$<br>\frac1{(1-α)}<br>$$</p>
 <h4 id="13-直接插入排序，冒泡排序，选择排序，快速排序思想"><a href="#13-直接插入排序，冒泡排序，选择排序，快速排序思想" class="headerlink" title="13. 直接插入排序，冒泡排序，选择排序，快速排序思想"></a>13. 直接插入排序，冒泡排序，选择排序，快速排序思想</h4><p> <em>P263 2 (1)</em> </p>
 <p>直接插入排序，冒泡排序，简单选择排序，快速排序每一趟的过程。<br>已知序列{7，8，6，4，3，2，17，5，15}，请写出采用某种排序法对该序列作升序排序时每一趟的结果。</p>
 <h3 id="四、算法题"><a href="#四、算法题" class="headerlink" title="四、算法题"></a><strong>四、算法题</strong></h3><h4 id="1-二叉树（递归思想）"><a href="#1-二叉树（递归思想）" class="headerlink" title="1. 二叉树（递归思想）"></a>1. 二叉树（递归思想）</h4><p>建立二叉树 和 二叉树的遍历算法<br>二叉树的二叉链表存储简单算法的实现（先序&#x2F;中序&#x2F;后序遍历二叉树）。<br>求结点个数，树深，复制二叉树，求叶片个数<br><em>教材p120-122，第5章ppt 46-49页</em></p>
@@ -334,7 +350,7 @@
         
     </div>
  
-    <div class="post-footer__meta"><p>更新于 2024-12-08</p></div> 
+    <div class="post-footer__meta"><p>更新于 2024-12-09</p></div> 
     <div class="post-entry__tags"><a href="/tags/C-C/" class="post-tags__link button"># C/C++</a></div> 
 </article>
 
