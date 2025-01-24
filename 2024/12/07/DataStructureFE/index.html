@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+        <link rel="shortcut icon" href="/img/favicon.ico">
+    
+    
+        <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    
+    
+        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    
+    
+        <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+    
+    
+        <link rel="mask-icon" href="/img/safari-pinned-tab.svg">
+    
+
+
+    <!-- meta -->
+
+
+<title>数据结构期末复习 | 温莎酱部落格</title>
+
+
+    <meta name="keywords" content="C/C++">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="数据结构.cpp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构期末复习">
+<meta property="og:url" content="https://blog.nekolin.top/2024/12/07/DataStructureFE/index.html">
+<meta property="og:site_name" content="温莎酱部落格">
+<meta property="og:description" content="数据结构.cpp">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2024/12/07/20241210120555750.png">
+<meta property="og:image" content="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2024/12/07/20241210120618219.png">
+<meta property="og:image" content="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2024/12/07/20241210121058736.png">
+<meta property="og:image" content="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2024/12/07/2579098-20211126233202207-1856636576.gif">
+<meta property="og:image" content="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2024/12/07/2579098-20211126233642533-266046377.gif">
+<meta property="og:image" content="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2024/12/07/20241210121413269.png">
+<meta property="og:image" content="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2024/12/07/816762-20211224142642097-1601129376.gif">
+<meta property="article:published_time" content="2024-12-07T14:10:00.000Z">
+<meta property="article:modified_time" content="2024-12-10T04:15:09.903Z">
+<meta property="article:author" content="WindsorWu">
+<meta property="article:tag" content="C&#x2F;C++">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2024/12/07/20241210120555750.png">
+
+
+    
+<link rel="stylesheet" href="/css/style/main.css">
+ 
+
+    
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="/css/highlight/hljs.css" media="none" >
+        
+            <link rel="stylesheet" id="hl-dark-theme" href="/css/highlight/hljs.dark.css" media="none">
+        
+    
+
+    
+
+    
+    
+<link rel="stylesheet" href="/css/style/dark.css">
+
+    
+<script src="/js/darkmode.js"></script>
+
+
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="/" class="button">
+            <span class="logo__text">WindsorWu&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/" class="navbar-menu button">首页</a>
+                
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
+                    <a href="/total/" class="navbar-menu button">分类</a>
+                
+                    <a href="/links/" class="navbar-menu button">友链</a>
+                
+                    <a href="/about/" class="navbar-menu button">关于</a>
+                
+                    <a target="_blank" rel="noopener" href="https://status.nekolin.top/" class="navbar-menu button">监测</a>
+                
+            </div>
+        
+        
+        
+    <a href="/search/" id="btn-search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="32"><path d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z"></path></svg>
+    </a>
+
+
+        
+        
+    <a href="javaScript:void(0);" id="btn-toggle-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </a>
+
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/" class="dropdown-menu button">首页</a>
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a href="/total/" class="dropdown-menu button">分类</a>
+                
+                    <a href="/links/" class="dropdown-menu button">友链</a>
+                
+                    <a href="/about/" class="dropdown-menu button">关于</a>
+                
+                    <a target="_blank" rel="noopener" href="https://status.nekolin.top/" class="dropdown-menu button">监测</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        数据结构期末复习
+    </h1>
+    <div class="post-title__meta">
+        <a href="/archives/2024/12/" class="post-meta__date button">2024-12-07</a>
+        
+    <span class="separate-dot"></span><a href="/categories/%E7%AC%94%E8%AE%B0/" class="button">笔记</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+
+<article class="post content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <p> 数据结构.cpp</p>
+<span id="more"></span>
+
+<h3 id="一、单选题"><a href="#一、单选题" class="headerlink" title="一、单选题"></a><strong>一、单选题</strong></h3><h3 id="二、填空题"><a href="#二、填空题" class="headerlink" title="二、填空题"></a><strong>二、填空题</strong></h3><h3 id="三、简答题"><a href="#三、简答题" class="headerlink" title="三、简答题"></a><strong>三、简答题</strong></h3><h4 id="1-栈与队列的存储及特点（入栈出栈、入队出队）"><a href="#1-栈与队列的存储及特点（入栈出栈、入队出队）" class="headerlink" title="1. 栈与队列的存储及特点（入栈出栈、入队出队）"></a>1. 栈与队列的存储及特点（入栈出栈、入队出队）</h4><p>栈：表尾端为栈顶、表头为栈低、不含元素的空表为空栈、后进先出。</p>
+<p>队列：允许插入的一端称为队尾、允许删除的一端称为队头、先进先出。</p>
+<h4 id="2-单链表、双向链表、循环链表的插入、删除"><a href="#2-单链表、双向链表、循环链表的插入、删除" class="headerlink" title="2. 单链表、双向链表、循环链表的插入、删除"></a>2. 单链表、双向链表、循环链表的插入、删除</h4><h5 id="单链表插入"><a href="#单链表插入" class="headerlink" title="单链表插入"></a>单链表插入</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++">s=<span class="hljs-keyword">new</span> LNode;<br>s-&gt;data=’x’;<br>s-&gt;next=p-&gt;next;<br>p-&gt;next=s;<br></code></pre></td></tr></table></figure>
+
+<h5 id="单链表删除"><a href="#单链表删除" class="headerlink" title="单链表删除"></a>单链表删除</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c++">q=p-&gt;next;<br>p-&gt;next=q-&gt;next;<br><span class="hljs-keyword">delete</span> q;<br></code></pre></td></tr></table></figure>
+
+<h5 id="双向链表插入"><a href="#双向链表插入" class="headerlink" title="双向链表插入"></a>双向链表插入</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++">s-&gt;prior=p-&gt;prior;<br>p-&gt;prior-&gt;next=s;<br>s-&gt;next=p;<br>p-&gt;prior=s;<br></code></pre></td></tr></table></figure>
+
+<h5 id="双向链表删除"><a href="#双向链表删除" class="headerlink" title="双向链表删除"></a>双向链表删除</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c++">p-&gt;prior-&gt;next=p-&gt;next;<br>p-&gt;next-&gt;prior=p-&gt;prior;<br><span class="hljs-keyword">delete</span> p;<br></code></pre></td></tr></table></figure>
+
+<h5 id="循环链表插入"><a href="#循环链表插入" class="headerlink" title="循环链表插入"></a>循环链表插入</h5><h5 id="循环链表删除"><a href="#循环链表删除" class="headerlink" title="循环链表删除"></a>循环链表删除</h5><h4 id="3-二叉树遍历（求先中后序序列及恢复二叉树）"><a href="#3-二叉树遍历（求先中后序序列及恢复二叉树）" class="headerlink" title="3. 二叉树遍历（求先中后序序列及恢复二叉树）"></a>3. 二叉树遍历（求先中后序序列及恢复二叉树）</h4><p> <em>P141 2（2）①</em></p>
+<p>设一颗二叉树的先序序列为ABDFCEGH，中序序列为BFDAGEHC。</p>
+<p>画出这棵二叉树</p>
+<p><strong>先序&#x2F;后序确定根，中序确定左右</strong></p>
+<h4 id="4-一般树-森林与二叉树的转换"><a href="#4-一般树-森林与二叉树的转换" class="headerlink" title="4. 一般树&#x2F;森林与二叉树的转换"></a>4. 一般树&#x2F;森林与二叉树的转换</h4><p><em>P141 2（2）③</em></p>
+<p>设一颗二叉树的先序序列为ABDFCEGH，中序序列为BFDAGEHC。</p>
+<p>将这棵二叉树转换成对应的树（或森林）</p>
+<p><strong>将树转换成二叉树的步骤是：</strong><br>　　（1）加线。就是在所有兄弟结点之间（同一层同一双亲结点的结点间）加一条连线；<br>　　（2）抹线。就是对树中的每个结点，只保留他与第一个孩子结点之间的连线，删除它与其它孩子结点之间的连线；<br>　　（3）旋转。就是以树的根结点为轴心，将整棵树顺时针旋转一定角度，使之结构层次分明，红色横线连起来的结点作为最左结点的右孩子。</p>
+<p><img src="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2024/12/07/20241210120555750.png" class="lazy" data-srcset="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2024/12/07/20241210120555750.png" srcset="/img/loading.gif"></p>
+<p><img src="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2024/12/07/20241210120618219.png" class="lazy" data-srcset="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2024/12/07/20241210120618219.png" srcset="/img/loading.gif"></p>
+<p><img src="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2024/12/07/20241210121058736.png" class="lazy" data-srcset="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2024/12/07/20241210121058736.png" srcset="/img/loading.gif"></p>
+<p><strong>将森林转换为二叉树的步骤是：</strong><br>　　（1）先把每棵树转换为二叉树；<br>　　（2）第一棵二叉树不动，从第二棵二叉树开始，依次把后一棵二叉树的根结点作为前一棵二叉树的根结点的右孩子结点，用线连接起来。当所有的二叉树连接起来后得到的二叉树就是由森林转换得到的二叉树。</p>
+<p><img src="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2024/12/07/2579098-20211126233202207-1856636576.gif" class="lazy" data-srcset="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2024/12/07/2579098-20211126233202207-1856636576.gif" srcset="/img/loading.gif"></p>
+<p><strong>二叉树转换为树是树转换为二叉树的逆过程，其步骤是：</strong><br>　　（1）若某结点的左孩子结点存在，将左孩子结点的右孩子结点、右孩子结点的右孩子结点……都作为该结点的孩子结点，将该结点与这些右孩子结点用线连接起来；<br>　　（2）删除原二叉树中所有结点与其右孩子结点的连线；<br>　　（3）整理（1）和（2）两步得到的树，使之结构层次分明。</p>
+<p><img src="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2024/12/07/2579098-20211126233642533-266046377.gif" class="lazy" data-srcset="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2024/12/07/2579098-20211126233642533-266046377.gif" srcset="/img/loading.gif"></p>
+<p><strong>二叉树转换为森林比较简单，其步骤如下：</strong></p>
+<p>　　（1）先把每个结点与右孩子结点的连线删除，得到分离的二叉树；<br>　　（2）把分离后的每棵二叉树转换为树；<br>　　（3）整理第（2）步得到的树，使之规范，这样得到森林。</p>
+<p><img src="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2024/12/07/20241210121413269.png" class="lazy" data-srcset="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2024/12/07/20241210121413269.png" srcset="/img/loading.gif"></p>
+<h4 id="5-哈夫曼树及哈夫曼编码-译码"><a href="#5-哈夫曼树及哈夫曼编码-译码" class="headerlink" title="5. 哈夫曼树及哈夫曼编码&#x2F;译码"></a>5. 哈夫曼树及哈夫曼编码&#x2F;译码</h4><p><em>P141 2（3）</em><br> 设一个权集W&#x3D;{5，2，9，11，8，3， 7}，请画出相应的Huffman树,并计算它的带权路径长度WPL。</p>
+<h4 id="6-图的两种存储：邻接表、邻接矩阵（注意区分图和网的表示方法差别）"><a href="#6-图的两种存储：邻接表、邻接矩阵（注意区分图和网的表示方法差别）" class="headerlink" title="6. 图的两种存储：邻接表、邻接矩阵（注意区分图和网的表示方法差别）"></a>6. 图的两种存储：邻接表、邻接矩阵（注意区分图和网的表示方法差别）</h4><p><em>P182 2（1）（2）</em></p>
+<p>有向图：邻接表、邻接矩阵看指出（出度）</p>
+<p>无向网：邻接表无向看成双向、邻接矩阵带权</p>
+<h4 id="7-图的两种遍历：DFS和BFS"><a href="#7-图的两种遍历：DFS和BFS" class="headerlink" title="7. 图的两种遍历：DFS和BFS"></a>7. 图的两种遍历：DFS和BFS</h4><p><em>P183 2（3）</em></p>
+<p><strong>深度优先遍历DFS</strong>：主要思路是从图中一个未访问的顶点 V 开始，沿着一条路一直走到底，然后从这条路尽头的节点回退到上一个节点，再从另一条路开始走到底…</p>
+<p><strong>广度优先遍历BFS</strong>：先遍历第一层(节点 1)，再遍历第二层(节点 2，3，4)，第三层(5，6，7，8)，第四层(9，10)</p>
+<p><img src="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2024/12/07/816762-20211224142642097-1601129376.gif" class="lazy" data-srcset="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2024/12/07/816762-20211224142642097-1601129376.gif" srcset="/img/loading.gif"></p>
+<h4 id="8-最小生成树（prim算法、kruskal算法）"><a href="#8-最小生成树（prim算法、kruskal算法）" class="headerlink" title="8. 最小生成树（prim算法、kruskal算法）"></a>8. 最小生成树（prim算法、kruskal算法）</h4><p> <em>P182 2（2）（3）</em></p>
+<p><strong>普里姆算法</strong>（Prim算法）不但包括了连通图里的所有顶点，且其所有边的权值之和亦为最小。</p>
+<p><strong>Kruskal算法</strong>在图中存在相同权值的边时也有效，不算顶点。</p>
+<h4 id="9-折半查找及决策树"><a href="#9-折半查找及决策树" class="headerlink" title="9. 折半查找及决策树"></a>9. 折半查找及决策树</h4><p><em>P224 2(1)</em></p>
+<p>顺序存储、有序存放</p>
+<h4 id="10-二叉排序树的构造、插入、删除"><a href="#10-二叉排序树的构造、插入、删除" class="headerlink" title="10. 二叉排序树的构造、插入、删除"></a>10. 二叉排序树的构造、插入、删除</h4><p>对于给定结点的数据集合D&#x3D;{1，11，5，8，3，10，7，13，9}<br> （1）依次取出D中各数据，构成一棵二叉排序树BT。<br> （2）求等概率情况下的平均查找长度ASL。<br> （3）画出在二叉排序树BT中删除“11”后的树的结构。 </p>
+<h4 id="11-散列表查找-冲突处理与表构造"><a href="#11-散列表查找-冲突处理与表构造" class="headerlink" title="11. 散列表查找-冲突处理与表构造"></a>11. 散列表查找-冲突处理与表构造</h4><p><strong>Hi &#x3D; (Hash(key) + di) mod m，（1 ≤ i ≤ m）</strong></p>
+<h5 id="线性探测法"><a href="#线性探测法" class="headerlink" title="线性探测法"></a>线性探测法</h5><p>其中，m为散列表长度，<strong>di &#x3D; i（i为1,2，…，m-1 线性序列）</strong></p>
+<h5 id="二次探测法"><a href="#二次探测法" class="headerlink" title="二次探测法"></a><strong>二次探测法</strong></h5><p>增量序列di为12，-12，22，-22，…，q2 二次序列</p>
+<h4 id="12-散列表查找-查找成功与失败的ASL"><a href="#12-散列表查找-查找成功与失败的ASL" class="headerlink" title="12. 散列表查找-查找成功与失败的ASL"></a>12. 散列表查找-查找成功与失败的ASL</h4><p> <em>P225 2（5）（6）</em></p>
+<p>给定结点的关键字序列为：19，14，23，1，68，20，84，27，55，11，10，79。设散列表的长度为13，散列函数为：H（K）&#x3D;K Mod 13。试画出线性探测再散列解决冲突时所构造的散列表，并计算平均查找长度。</p>
+<table>
+<thead>
+<tr>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+<th>11</th>
+<th>12</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h5 id="线性探测法查找成功"><a href="#线性探测法查找成功" class="headerlink" title="线性探测法查找成功"></a>线性探测法查找成功</h5><p>$$<br>\frac12(1+\frac1{1-α})<br>$$</p>
+<h5 id="线性探测法查找失败"><a href="#线性探测法查找失败" class="headerlink" title="线性探测法查找失败"></a>线性探测法查找失败</h5><p>$$<br>\frac12(1+\frac1{(1-α)^2})<br>$$</p>
+<h5 id="二次探测法查找成功"><a href="#二次探测法查找成功" class="headerlink" title="二次探测法查找成功"></a>二次探测法查找成功</h5><p>$$<br>-\frac1α\ln{(1-α)}<br>$$</p>
+<h5 id="二次探测法查找失败"><a href="#二次探测法查找失败" class="headerlink" title="二次探测法查找失败"></a>二次探测法查找失败</h5><p>$$<br>\frac1{(1-α)}<br>$$</p>
+<h4 id="13-直接插入排序，冒泡排序，选择排序，快速排序思想"><a href="#13-直接插入排序，冒泡排序，选择排序，快速排序思想" class="headerlink" title="13. 直接插入排序，冒泡排序，选择排序，快速排序思想"></a>13. 直接插入排序，冒泡排序，选择排序，快速排序思想</h4><p> <em>P263 2 (1)</em> </p>
+<p>直接插入排序，冒泡排序，简单选择排序，快速排序每一趟的过程。<br>已知序列{7，8，6，4，3，2，17，5，15}，请写出采用某种排序法对该序列作升序排序时每一趟的结果。</p>
+<h3 id="四、算法题"><a href="#四、算法题" class="headerlink" title="四、算法题"></a><strong>四、算法题</strong></h3><h4 id="1-二叉树（递归思想）"><a href="#1-二叉树（递归思想）" class="headerlink" title="1. 二叉树（递归思想）"></a>1. 二叉树（递归思想）</h4><p>建立二叉树 和 二叉树的遍历算法<br>二叉树的二叉链表存储简单算法的实现（先序&#x2F;中序&#x2F;后序遍历二叉树）。<br>求结点个数，树深，复制二叉树，求叶片个数<br><em>教材p120-122，第5章ppt 46-49页</em></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">typedef</span>  <span class="hljs-keyword">struct</span>  <span class="hljs-title class_">BiTNode</span><br>&#123;<br><span class="hljs-type">char</span> data;<br> <span class="hljs-keyword">struct</span>  <span class="hljs-title class_">BiTNode</span>  *lchild , *rchild ;<br>&#125;BiTNode, *BiTree;<br></code></pre></td></tr></table></figure>
+
+
+
+<h5 id="先序遍历"><a href="#先序遍历" class="headerlink" title="先序遍历"></a>先序遍历</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span>  <span class="hljs-title">Treeout</span><span class="hljs-params">(BiTree  T)</span></span><br><span class="hljs-function"></span>&#123;<br>   <span class="hljs-comment">//填入实现代码</span><br>	<span class="hljs-keyword">if</span> (T) &#123;<br>        cout &lt;&lt; T-&gt;data;<br>        <span class="hljs-built_in">Treeout</span> (T-&gt;lchild);<br>        <span class="hljs-built_in">Treeout</span> (T-&gt;rchild);<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h5 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">InOrder</span><span class="hljs-params">(BiTree T)</span>      <span class="hljs-comment">//中序遍历</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (T) &#123;<br>        <span class="hljs-built_in">InOrder</span>(T-&gt;lchild);<br>        cout &lt;&lt; T-&gt;data;<br>        <span class="hljs-built_in">InOrder</span>(T-&gt;rchild);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h5 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">PostOrder</span><span class="hljs-params">(BiTree T)</span>      <span class="hljs-comment">//后序遍历</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (T) &#123;<br>        <span class="hljs-built_in">InOrder</span>(T-&gt;lchild);<br>        <span class="hljs-built_in">InOrder</span>(T-&gt;rchild);<br>        cout &lt;&lt; T-&gt;data;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h5 id="结点的个数"><a href="#结点的个数" class="headerlink" title="结点的个数"></a>结点的个数</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">NodeCount</span><span class="hljs-params">(BiTree T)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span>(T==<span class="hljs-literal">NULL</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-built_in">NodeCount</span>(T-&gt;lchild)+<span class="hljs-built_in">NodeCount</span>(T-&gt;rchild)<span class="hljs-number">+1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h5 id="叶子结点的个数"><a href="#叶子结点的个数" class="headerlink" title="叶子结点的个数"></a>叶子结点的个数</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">CountLeaf</span><span class="hljs-params">(BiTree T)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span>(T==<span class="hljs-literal">NULL</span>) &#123;<br>        <span class="hljs-keyword">return</span> ;<br>    &#125;<br>    <span class="hljs-keyword">if</span>(T-&gt;lchild==<span class="hljs-literal">NULL</span> &amp;&amp; T-&gt;rchild==<span class="hljs-literal">NULL</span>)&#123;<br>        num_0++;<br>    &#125;<br>    <span class="hljs-built_in">CountLeaf</span>(T-&gt;lchild);<br>    <span class="hljs-built_in">CountLeaf</span>(T-&gt;rchild);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h5 id="树的深度"><a href="#树的深度" class="headerlink" title="树的深度"></a>树的深度</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">Depth</span><span class="hljs-params">(BiTree T)</span> </span>&#123;<br>    <span class="hljs-type">int</span> Tl=<span class="hljs-number">0</span>,Tr=<span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">if</span>(T==<span class="hljs-literal">NULL</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">else</span>&#123;<br>        Tl=<span class="hljs-built_in">Depth</span>(T-&gt;lchild);<br>        Tr=<span class="hljs-built_in">Depth</span>(T-&gt;rchild);<br>        <span class="hljs-keyword">if</span>(Tl&gt;Tr) <span class="hljs-keyword">return</span> (Tl<span class="hljs-number">+1</span>);<br>        <span class="hljs-keyword">else</span> <span class="hljs-built_in">return</span>(Tr<span class="hljs-number">+1</span>);<br>    &#125;<br><br></code></pre></td></tr></table></figure>
+
+<h5 id="交换左右子树"><a href="#交换左右子树" class="headerlink" title="交换左右子树"></a>交换左右子树</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">swap</span><span class="hljs-params">(BiTree &amp;T)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span>(T==<span class="hljs-literal">NULL</span>) <span class="hljs-keyword">return</span>;<br>    BTNode *temp=T-&gt;lchild;<br>    T-&gt;lchild=T-&gt;rchild;<br>    T-&gt;rchild=temp;<br>    <span class="hljs-built_in">swap</span>(T-&gt;lchild);<br>    <span class="hljs-built_in">swap</span>(T-&gt;rchild);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="2-排序算法（直接插入排序、冒泡排序、简单选择排序、快速排序）"><a href="#2-排序算法（直接插入排序、冒泡排序、简单选择排序、快速排序）" class="headerlink" title="2. 排序算法（直接插入排序、冒泡排序、简单选择排序、快速排序）"></a>2. 排序算法（直接插入排序、冒泡排序、简单选择排序、快速排序）</h4><p><em>P230-240</em></p>
+<h5 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">InsertSort</span><span class="hljs-params">(<span class="hljs-type">int</span> r[],<span class="hljs-type">int</span> n)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">int</span> i,j,key;<br>    <span class="hljs-keyword">for</span>(i=<span class="hljs-number">2</span>;i&lt;=n;i++)&#123;<br>        key=r[i];<br>        j=i<span class="hljs-number">-1</span>;<br>        <span class="hljs-keyword">while</span>(j&gt;=<span class="hljs-number">1</span>&amp;&amp;r[j]&gt;key)&#123;<br>            r[j<span class="hljs-number">+1</span>]=r[j];<br>            j--;<br>        &#125;<br>        r[j<span class="hljs-number">+1</span>]=key;<br>        <span class="hljs-built_in">show</span>(r,n);<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<h5 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">BubbleSort</span><span class="hljs-params">(<span class="hljs-type">int</span> r[],<span class="hljs-type">int</span> n)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">bool</span> swapped;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;n;i++)&#123;<br>        swapped=<span class="hljs-literal">false</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=n;j&gt;i;j--)&#123;<br>            <span class="hljs-keyword">if</span>(r[j<span class="hljs-number">-1</span>]&gt;r[j])&#123;<br>                <span class="hljs-built_in">swap</span>(r[j<span class="hljs-number">-1</span>],r[j]);<br>                swapped=<span class="hljs-literal">true</span>;<br>            &#125;<br>        &#125;<br>        <span class="hljs-built_in">show</span>(r,n);<br>        <span class="hljs-keyword">if</span>(!swapped) <span class="hljs-keyword">break</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h5 id="简单选择排序"><a href="#简单选择排序" class="headerlink" title="简单选择排序"></a>简单选择排序</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SelectSort</span><span class="hljs-params">(<span class="hljs-type">int</span> R[],<span class="hljs-type">int</span> n)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n - <span class="hljs-number">1</span>; i++)<br>    &#123;<br>        <span class="hljs-type">int</span> minIndex = i; <br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = i + <span class="hljs-number">1</span>; j &lt;= n; j++)<br>        &#123;<br>            <span class="hljs-keyword">if</span> (R[j] &lt; R[minIndex])<br>                minIndex = j;<br>        &#125;<br>        <span class="hljs-keyword">if</span> (minIndex != i)<br>        &#123;<br>            <span class="hljs-type">int</span> temp = R[i];<br>            R[i] = R[minIndex];<br>            R[minIndex] = temp;<br>        &#125;<br>        <span class="hljs-built_in">show</span>(R, n);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h5 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">int</span>  <span class="hljs-title">QuilckSort</span><span class="hljs-params">(<span class="hljs-type">int</span> R[<span class="hljs-number">10</span>],<span class="hljs-type">int</span> left,<span class="hljs-type">int</span> right)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">int</span> i,j;<br>    R[<span class="hljs-number">0</span>] = R[left];<br>    i = left;<br>    j = right;<br>    <span class="hljs-keyword">while</span>(i!=j)<br>    &#123;      <br>        <span class="hljs-keyword">while</span>(j&gt;i&amp;&amp;R[j]&gt;R[<span class="hljs-number">0</span>])<br>            j--;<br>        R[i] = R[j];<br>        <span class="hljs-keyword">while</span>(j&gt;i&amp;&amp;R[i]&lt;R[<span class="hljs-number">0</span>])<br>            i++;<br>        R[j] = R[i];<br>    &#125;<br>    R[i] = R[<span class="hljs-number">0</span>];<br>    <span class="hljs-built_in">show</span>(R,<span class="hljs-number">9</span>);<br>    <span class="hljs-keyword">return</span> i;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">RealQuickSort</span><span class="hljs-params">(<span class="hljs-type">int</span> R[<span class="hljs-number">10</span>],<span class="hljs-type">int</span> left,<span class="hljs-type">int</span> right)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">int</span> mid;<br>    <span class="hljs-keyword">if</span>(left &gt;= right)<br>    &#123;<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span><br>    &#123;<br>        mid=<span class="hljs-built_in">QuilckSort</span>(R,left,right);<br>        <span class="hljs-built_in">RealQuickSort</span>(R,left,mid<span class="hljs-number">-1</span>);<br>        <span class="hljs-built_in">RealQuickSort</span>(R,mid<span class="hljs-number">+1</span>,right);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="3-线性表的基本操作（顺序存储和链式存储）"><a href="#3-线性表的基本操作（顺序存储和链式存储）" class="headerlink" title="3. 线性表的基本操作（顺序存储和链式存储）"></a>3. 线性表的基本操作（顺序存储和链式存储）</h4><p><em>P25-37</em></p>
+<h5 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> <span class="hljs-title class_">Node</span><br>&#123;<br>   <span class="hljs-type">int</span> data;<br>   <span class="hljs-keyword">struct</span> <span class="hljs-title class_">Node</span>  *next;<br> &#125;LNode;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Show</span><span class="hljs-params">(LNode *L)</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-comment">//填入实现代码</span><br>LNode *current = L-&gt;next; <span class="hljs-comment">// 跳过头结点</span><br>    <span class="hljs-keyword">while</span> (current != <span class="hljs-literal">NULL</span>) &#123;<br>        cout &lt;&lt; current-&gt;data;<br>        current = current-&gt;next;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="4-队列的进队和出队操作。（循环队列和链队列）"><a href="#4-队列的进队和出队操作。（循环队列和链队列）" class="headerlink" title="4. 队列的进队和出队操作。（循环队列和链队列）"></a>4. 队列的进队和出队操作。（循环队列和链队列）</h4><h5 id="循环队列入队"><a href="#循环队列入队" class="headerlink" title="循环队列入队"></a>循环队列入队</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function">Status <span class="hljs-title">EnQueue</span><span class="hljs-params">(SqQueue &amp;Q, QElemType e)</span> </span>&#123; <span class="hljs-comment">//插入元素e为Q的新的队尾元素</span><br>    <span class="hljs-keyword">if</span>((Q.rear<span class="hljs-number">+1</span>)%MAXQSIZE==Q.front) <span class="hljs-keyword">return</span> ERROR;<br>    Q.base[Q.rear]=e;<br>    Q.rear=(Q.rear<span class="hljs-number">+1</span>)%MAXQSIZE;<br>    <span class="hljs-keyword">return</span> OK;  <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h5 id="循环队列出队"><a href="#循环队列出队" class="headerlink" title="循环队列出队"></a>循环队列出队</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function">Status <span class="hljs-title">DeQueue</span><span class="hljs-params">(SqQueue &amp;Q, QElemType &amp;e)</span> </span>&#123;<span class="hljs-comment">//删除Q的队头元素，用e返回其值</span><br>    <span class="hljs-keyword">if</span>(Q.front==Q.rear) <span class="hljs-keyword">return</span> ERROR;<br>    e=Q.base[Q.front];<br>    Q.front=(Q.front<span class="hljs-number">+1</span>)%MAXQSIZE;<br>    <span class="hljs-keyword">return</span> OK;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h5 id="链队列入队"><a href="#链队列入队" class="headerlink" title="链队列入队"></a>链队列入队</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function">Status <span class="hljs-title">EnQueue</span><span class="hljs-params">(LinkQueue &amp;Q, QElemType e)</span> </span>&#123; <span class="hljs-comment">//插入元素e为Q的新的队尾元素</span><br>    QNode *p;<br>    p=<span class="hljs-keyword">new</span> QNode;<br>    p-&gt;data=e;<br>    p-&gt;next=<span class="hljs-literal">NULL</span>;<br>    Q.rear-&gt;next=p;<br>    Q.rear=p;<br>    <span class="hljs-keyword">return</span> OK;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h5 id="链队列出队"><a href="#链队列出队" class="headerlink" title="链队列出队"></a>链队列出队</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function">Status <span class="hljs-title">DeQueue</span><span class="hljs-params">(LinkQueue &amp;Q, QElemType &amp;e)</span> </span>&#123;<span class="hljs-comment">//删除Q的队头元素，用e返回其值</span><br>    QNode *p;<br>    <span class="hljs-keyword">if</span>(Q.front==Q.rear) <span class="hljs-keyword">return</span> ERROR;<br>    p=Q.front-&gt;next;<br>    e=p-&gt;data;<br>    Q.front-&gt;next=p-&gt;next;<br>    <span class="hljs-keyword">if</span>(Q.rear==p)   Q.rear=Q.front;<br>    <span class="hljs-keyword">delete</span> p;<br>    <span class="hljs-keyword">return</span> OK;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="5-栈的进栈和出栈操作（顺序存储和链式存储）"><a href="#5-栈的进栈和出栈操作（顺序存储和链式存储）" class="headerlink" title="5. 栈的进栈和出栈操作（顺序存储和链式存储）"></a>5. 栈的进栈和出栈操作（顺序存储和链式存储）</h4><h5 id="顺序栈的进栈"><a href="#顺序栈的进栈" class="headerlink" title="顺序栈的进栈"></a>顺序栈的进栈</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function">Status <span class="hljs-title">Push</span><span class="hljs-params">(SqStack &amp;S, SElemType e)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (S.top - S.base == S.stacksize)<br>        <span class="hljs-keyword">return</span> ERROR;<br>    *(S.top++) = e;<br>    <span class="hljs-keyword">return</span> OK;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h5 id="顺序栈的出栈"><a href="#顺序栈的出栈" class="headerlink" title="顺序栈的出栈"></a>顺序栈的出栈</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function">Status <span class="hljs-title">Pop</span><span class="hljs-params">(SqStack &amp;S, SElemType &amp;e)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (S.base == S.top)<br>        <span class="hljs-keyword">return</span> ERROR;<br>    e = *(--S.top);<br>    <span class="hljs-keyword">return</span> OK;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h5 id="链栈的入栈"><a href="#链栈的入栈" class="headerlink" title="链栈的入栈"></a>链栈的入栈</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function">Status <span class="hljs-title">Push</span><span class="hljs-params">(LinkStack &amp;S, SElemType e)</span> </span>&#123;<br>    LinkStack p;<br>    p = <span class="hljs-keyword">new</span> StackNode;<br>    p-&gt;data = e;<br>    p-&gt;next = S;<br>    S = p;<br>    <span class="hljs-keyword">return</span> OK;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h5 id="链栈的出栈"><a href="#链栈的出栈" class="headerlink" title="链栈的出栈"></a>链栈的出栈</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function">Status <span class="hljs-title">Pop</span><span class="hljs-params">(LinkStack &amp;S, SElemType e)</span> </span>&#123;<br>    LinkStack p;<br>    p = <span class="hljs-keyword">new</span> StackNode;<br>    <span class="hljs-keyword">if</span>(S==<span class="hljs-literal">NULL</span>) <span class="hljs-keyword">return</span> ERROR;<br>    e=S-&gt;data;<br>    p=S;<br>    S=S-&gt;next;<br>    <span class="hljs-keyword">delete</span> p;<br>    <span class="hljs-keyword">return</span> OK;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+    </div>
+    
+    <div class="post__license">
+        <p>
+            <strong>本文作者：</strong>WindsorWu
+        </p>
+        <p>
+            <strong>
+                本文链接：
+            </strong>
+            <a href="https://blog.nekolin.top/2024/12/07/DataStructureFE/">https://blog.nekolin.top/2024/12/07/DataStructureFE/</a>
+        </p>
+        
+            <strong>
+                <p>文章默认使用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a> 协议进行许可，使用时请注意遵守协议。</p>
+
+            </strong>
+        
+    </div>
+ 
+    <div class="post-footer__meta"><p>更新于 2024-12-10</p></div> 
+    <div class="post-entry__tags"><a href="/tags/C-C/" class="post-tags__link button"># C/C++</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="/2025/01/04/Introduction-to-Software-Engineering/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            上一篇
+                        </div>
+                        <div class="nav__title">
+                            软件工程概论
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="/2023/06/18/summer-vacation/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            下一篇
+                        </div>
+                        <div class="nav__title">
+                            2023年暑假记录
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+
+
+</main>
+
+            <footer class="footer">
+     
+    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2022&nbsp;-&nbsp;2025 <a href="/">温莎酱部落格</a>
+        </p>
+    
+    
+        
+            <p><a target="_blank" rel="noopener" href="https://icp.gov.moe/?keyword=20232523">萌ICP备20232523号</a></p>
+
+        
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+        
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+    <script>
+        window.lazyLoadOptions = {
+            elements_selector: ".lazy",
+            threshold: 0
+        };
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement('script');
+            hm.src = 'https://hm.baidu.com/hm.js?9a2b4d30adc3d825fc137f3a49b91fa8';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+
+    <script src='https://cdn.jsdelivr.net/npm/mermaid@8.10.2/dist/mermaid.min.js'></script>
+    <script>
+            mermaid.initialize(JSON.stringify(''));
+    </script>
+ 
+
+ 
+
+
+
+
+    </body>
+</html>

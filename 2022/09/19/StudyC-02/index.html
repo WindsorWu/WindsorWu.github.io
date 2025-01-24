@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+        <link rel="shortcut icon" href="/img/favicon.ico">
+    
+    
+        <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    
+    
+        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    
+    
+        <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+    
+    
+        <link rel="mask-icon" href="/img/safari-pinned-tab.svg">
+    
+
+
+    <!-- meta -->
+
+
+<title>C语言程序设计 第二章 | 温莎酱部落格</title><meta name="robots" content="noindex">
+
+
+    <meta name="keywords" content="C/C++">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="终于考完两种英语等级考试了，有大把的时间来填坑了~">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言程序设计 第二章">
+<meta property="og:url" content="https://blog.nekolin.top/2022/09/19/StudyC-02/index.html">
+<meta property="og:site_name" content="温莎酱部落格">
+<meta property="og:description" content="终于考完两种英语等级考试了，有大把的时间来填坑了~">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/19/image-20220922172115835.png">
+<meta property="og:image" content="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/19/image-20220922173500235.png">
+<meta property="article:published_time" content="2022-09-19T12:05:00.000Z">
+<meta property="article:modified_time" content="2024-12-09T06:50:45.226Z">
+<meta property="article:author" content="WindsorWu">
+<meta property="article:tag" content="C&#x2F;C++">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/19/image-20220922172115835.png">
+
+
+    
+<link rel="stylesheet" href="/css/style/main.css">
+ 
+
+    
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="/css/highlight/hljs.css" media="none" >
+        
+            <link rel="stylesheet" id="hl-dark-theme" href="/css/highlight/hljs.dark.css" media="none">
+        
+    
+
+    
+
+    
+    
+<link rel="stylesheet" href="/css/style/dark.css">
+
+    
+<script src="/js/darkmode.js"></script>
+
+
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="/" class="button">
+            <span class="logo__text">WindsorWu&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/" class="navbar-menu button">首页</a>
+                
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
+                    <a href="/total/" class="navbar-menu button">分类</a>
+                
+                    <a href="/links/" class="navbar-menu button">友链</a>
+                
+                    <a href="/about/" class="navbar-menu button">关于</a>
+                
+                    <a target="_blank" rel="noopener" href="https://status.nekolin.top/" class="navbar-menu button">监测</a>
+                
+            </div>
+        
+        
+        
+    <a href="/search/" id="btn-search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="32"><path d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z"></path></svg>
+    </a>
+
+
+        
+        
+    <a href="javaScript:void(0);" id="btn-toggle-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </a>
+
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/" class="dropdown-menu button">首页</a>
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a href="/total/" class="dropdown-menu button">分类</a>
+                
+                    <a href="/links/" class="dropdown-menu button">友链</a>
+                
+                    <a href="/about/" class="dropdown-menu button">关于</a>
+                
+                    <a target="_blank" rel="noopener" href="https://status.nekolin.top/" class="dropdown-menu button">监测</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        C语言程序设计 第二章
+    </h1>
+    <div class="post-title__meta">
+        <a href="/archives/2022/09/" class="post-meta__date button">2022-09-19</a>
+        
+    <span class="separate-dot"></span><a href="/categories/%E7%AC%94%E8%AE%B0/" class="button">笔记</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+
+<article class="post content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <p> 终于考完两种英语等级考试了，有大把的时间来填坑了~</p>
+<span id="more"></span>
+
+<p>本文属于自用笔记，假如对于你有帮助的话，鄙人万分荣幸。若有补充，请在评论区留言~</p>
+<h1 id="第二章-算法"><a href="#第二章-算法" class="headerlink" title="第二章 算法"></a>第二章 算法</h1><h2 id="1、简单的算法举例"><a href="#1、简单的算法举例" class="headerlink" title="1、简单的算法举例"></a>1、简单的算法举例</h2><h3 id="【例2-1】求1×2×3×4×5"><a href="#【例2-1】求1×2×3×4×5" class="headerlink" title="【例2.1】求1×2×3×4×5"></a>【例2.1】求1×2×3×4×5</h3><h4 id="算法步骤"><a href="#算法步骤" class="headerlink" title="算法步骤"></a>算法步骤</h4><ol>
+<li>令p&#x3D;1，或写成1&#x3D;&gt;p(表示将1存放在变量p中)</li>
+<li>令i&#x3D;2，或写成2&#x3D;&gt;i(表示将2存放在变量i中)</li>
+<li>使p与i相乘，乘积仍放在变量p中，可表示为: p*i&#x3D;&gt;p</li>
+<li>使i的值加1，即i+1&#x3D;&gt;i</li>
+<li>如果i不大于5，返回重新执行3及其后的步骤4和5；否则，算法结束。最后得到p的值就是5!的值</li>
+</ol>
+<h4 id="若题目改为-求1×3×5×7×9×11"><a href="#若题目改为-求1×3×5×7×9×11" class="headerlink" title="若题目改为: 求1×3×5×7×9×11"></a>若题目改为: 求1×3×5×7×9×11</h4><h5 id="算法步骤-1"><a href="#算法步骤-1" class="headerlink" title="算法步骤"></a>算法步骤</h5><ol>
+<li>令p&#x3D;1，或写成1&#x3D;&gt;p(表示将1存放在变量p中)</li>
+<li>令<strong>i&#x3D;3</strong>，或写成<strong>3&#x3D;&gt;i</strong>(表示将<strong>3</strong>存放在变量i中)</li>
+<li>使p与i相乘，乘积仍放在变量p中，可表示为: p*i&#x3D;&gt;p</li>
+<li>使i的值加<strong>2</strong>，即<strong>i+2&#x3D;&gt;i</strong></li>
+<li><strong>如果i≤11，返回3；否则，结束。或者 若i＞11，结束；否则，返回3</strong></li>
+</ol>
+<h3 id="【例2-2】有50个学生，要求输出成绩在80分以上的学生的学号和成绩"><a href="#【例2-2】有50个学生，要求输出成绩在80分以上的学生的学号和成绩" class="headerlink" title="【例2.2】有50个学生，要求输出成绩在80分以上的学生的学号和成绩"></a>【例2.2】有50个学生，要求输出成绩在80分以上的学生的学号和成绩</h3><blockquote>
+<p>n：表示学生学号</p>
+<p>下标i：表示第几个学生</p>
+<p>n1：表示第一个学生的学号</p>
+<p>ni：表示第i个学生的学号</p>
+<p>g：表示学生的成绩</p>
+<p>g1：表示第一个学生的成绩</p>
+<p>gi：表示第i个学生的成绩</p>
+</blockquote>
+<h4 id="算法步骤-2"><a href="#算法步骤-2" class="headerlink" title="算法步骤"></a>算法步骤</h4><ol>
+<li>1&#x3D;&gt;i</li>
+<li>如果gi≥80，则输出ni和gi，否则不输出</li>
+<li>i+1&#x3D;&gt;i</li>
+<li>如果i≤50，返回到2，继续执行，否则，算法结束</li>
+</ol>
+<h3 id="【例2-3】判定2000—2500年中的每一年是否为闰年，并将结果输出"><a href="#【例2-3】判定2000—2500年中的每一年是否为闰年，并将结果输出" class="headerlink" title="【例2.3】判定2000—2500年中的每一年是否为闰年，并将结果输出"></a>【例2.3】判定2000—2500年中的每一年是否为闰年，并将结果输出</h3><h4 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h4><table>
+<thead>
+<tr>
+<th>年份尾号</th>
+<th>是否闰年</th>
+<th>是否能被某个数整除</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>01</td>
+<td>否</td>
+<td>year不能被4整除</td>
+</tr>
+<tr>
+<td>02</td>
+<td>是</td>
+<td>year被4整除，但不能被100整除</td>
+</tr>
+<tr>
+<td>03</td>
+<td>否</td>
+<td>year被100整除，又能被400整除</td>
+</tr>
+<tr>
+<td>04</td>
+<td>否</td>
+<td>其他</td>
+</tr>
+</tbody></table>
+<h4 id="算法步骤-3"><a href="#算法步骤-3" class="headerlink" title="算法步骤"></a>算法步骤</h4><ol>
+<li>2000&#x3D;&gt;year</li>
+<li>若year不能被4整除，则输出year 的值和“不是闰年”。然后转到6，检查下一个年份</li>
+<li>若year能被4整除，不能被100整除，则输出year的值和“是闰年”。然后转到6</li>
+<li>若year能被400整除，输出year的值和“是闰年” ，然后转到6</li>
+<li>输出year的值和“不是闰年”</li>
+<li>year+1&#x3D;&gt;year</li>
+<li>当year≤2500时，转2继续执行，否则算法停止</li>
+</ol>
+<h3 id="【例2-4】求-1-1-2-1-3-1-4-⋯-1-99-1-100"><a href="#【例2-4】求-1-1-2-1-3-1-4-⋯-1-99-1-100" class="headerlink" title="【例2.4】求 1- 1&#x2F;2 + 1&#x2F;3 - 1&#x2F;4 + ⋯ + 1&#x2F;99 - 1&#x2F;100"></a>【例2.4】求 1- 1&#x2F;2 + 1&#x2F;3 - 1&#x2F;4 + ⋯ + 1&#x2F;99 - 1&#x2F;100</h3><blockquote>
+<p>sign：表示当前项的数值符号</p>
+<p>term：表示当前项的值</p>
+<p>sum：表示当前项的累加和</p>
+<p>deno：表示当前项的分母</p>
+</blockquote>
+<h4 id="算法步骤-4"><a href="#算法步骤-4" class="headerlink" title="算法步骤"></a>算法步骤</h4><ol>
+<li>x graph TD;​A([开始])​B[问题分析]​C[设计算法]​D[编写程序]​E[对源程序进行编辑, 编译和连接]​F[运行程序分析结果]​G[编写程序文档]​H([结束])​A –&gt; B –&gt; C –&gt; D –&gt; E –&gt; F –&gt; G –&gt; Hmermaid</li>
+<li>sum&#x3D;1</li>
+<li>deno&#x3D;2</li>
+<li>sign&#x3D;(-1)^sign</li>
+<li>term&#x3D;sign^(1&#x2F;deno)</li>
+<li>sum&#x3D;sum+term</li>
+<li>deno&#x3D;deno+1</li>
+<li>若deno≤100返回4；否则算法结束</li>
+</ol>
+<h3 id="【例2-5】给出一个大于或等于3的正整数，判断它是不是一个素数"><a href="#【例2-5】给出一个大于或等于3的正整数，判断它是不是一个素数" class="headerlink" title="【例2.5】给出一个大于或等于3的正整数，判断它是不是一个素数"></a>【例2.5】给出一个大于或等于3的正整数，判断它是不是一个素数</h3><h4 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h4><p>所谓素数，是指除了1和该数本身之外，不能被其他任何整数整除的数。</p>
+<h4 id="算法步骤-5"><a href="#算法步骤-5" class="headerlink" title="算法步骤"></a>算法步骤</h4><ol>
+<li><p>输入n的值</p>
+</li>
+<li><p>i&#x3D;2（i作为除数）</p>
+</li>
+<li><p>n被i除，得余数r</p>
+</li>
+<li><p>如果r&#x3D;0，表示n能被i整除，则输出n“不是素数”，算法结束；否则执行5</p>
+</li>
+<li><p>i+1&#x3D;&gt;i</p>
+</li>
+<li><p>如果i≤√𝑛，返回3；否则输出n的值以及“是素数”，然后结束</p>
+</li>
+</ol>
+<blockquote>
+<p>实际上，n不必被2 ~ (n-1)之间的整数除，只须被2 ~ n&#x2F;2间整数除即可，甚至只须被2~√𝑛<br>之间的整数除即可。</p>
+</blockquote>
+<h2 id="2、算法的特性"><a href="#2、算法的特性" class="headerlink" title="2、算法的特性"></a>2、算法的特性</h2><ul>
+<li><strong>有穷性</strong>：一个算法应包含有限的操作步骤，而不能是无限的</li>
+<li><strong>确定性</strong>：算法中的每一个步骤都应当是确定的，而不应当是含糊的、模棱两可的</li>
+<li><strong>有零个或多个输入</strong>：所谓输入是指在执行算法时需要从外界取得必要的信息</li>
+<li><strong>有一个或多个输出</strong>：算法的目的是为了求解，“解” 就是输出</li>
+<li><strong>有效性</strong>：算法中的每一个步骤都应当能有效地执行，并得到确定的结果</li>
+</ul>
+<h2 id="3、怎么表示一个算法"><a href="#3、怎么表示一个算法" class="headerlink" title="3、怎么表示一个算法"></a>3、怎么表示一个算法</h2><h3 id="用流程图表示算法"><a href="#用流程图表示算法" class="headerlink" title="用流程图表示算法"></a>用流程图表示算法</h3><h4 id="【例2-6】将例2-1的算法用流程图表示。求1×2×3×4×5。"><a href="#【例2-6】将例2-1的算法用流程图表示。求1×2×3×4×5。" class="headerlink" title="【例2.6】将例2.1的算法用流程图表示。求1×2×3×4×5。"></a>【例2.6】将例2.1的算法用流程图表示。求1×2×3×4×5。</h4><pre class="mermaid">graph TD;
+
+A([开始])
+
+B[1=>p]
+
+C[2=>i]
+
+D[p*i=>p]
+
+E[i+1=>i]
+
+F{i>5}
+
+G[/输出p/]
+
+H([结束])
+
+A --> B --> C --> D --> E --> F --Y--> G --> H ; F --N--> D</pre>
+
+<h4 id="传统流程图的弊端"><a href="#传统流程图的弊端" class="headerlink" title="传统流程图的弊端"></a>传统流程图的弊端</h4><p>看图就完事了，一团乱麻</p>
+<img src="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/19/image-20220922172115835.png" class="lazy" data-srcset="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/19/image-20220922172115835.png" srcset="/img/loading.gif" style="zoom:90%;" />
+
+
+
+<h4 id="流程图三种基本结构"><a href="#流程图三种基本结构" class="headerlink" title="流程图三种基本结构"></a>流程图三种基本结构</h4><h5 id="顺序结构"><a href="#顺序结构" class="headerlink" title="顺序结构"></a>顺序结构</h5><pre class="mermaid">graph TD;
+A-->B</pre>
+
+<h5 id="选择结构"><a href="#选择结构" class="headerlink" title="选择结构"></a>选择结构</h5><pre class="mermaid">graph TD;
+A{P}--真-->B[A];A--假-->C[B];</pre>
+
+<h5 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h5><pre class="mermaid">graph TD;
+A{P}--真-->B[A];B-->A;A--假-->C[B]</pre>
+
+
+
+<h3 id="用N-S流程图表示算法"><a href="#用N-S流程图表示算法" class="headerlink" title="用N-S流程图表示算法"></a>用N-S流程图表示算法</h3><img src="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/19/image-20220922173500235.png" class="lazy" data-srcset="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/19/image-20220922173500235.png" srcset="/img/loading.gif" style="zoom:80%;" />
+
+
+
+<h3 id="用伪代码表示算法"><a href="#用伪代码表示算法" class="headerlink" title="用伪代码表示算法"></a>用伪代码表示算法</h3><h4 id="【例2-7】求5-，用伪代码表示。"><a href="#【例2-7】求5-，用伪代码表示。" class="headerlink" title="【例2.7】求5!，用伪代码表示。"></a>【例2.7】求5!，用伪代码表示。</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">begin	(算法开始)<br>    1=&gt;p<br>    2=&gt;I<br>    while i≤5<br>    &#123;    p*i=&gt;p<br>         i+1=&gt;I<br>    &#125;<br>    print p<br>end	(算法结束)<br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="【例2-8】求-1−1-2-1-3−1-4-⋯-1-99−1-100，用伪代码表示。"><a href="#【例2-8】求-1−1-2-1-3−1-4-⋯-1-99−1-100，用伪代码表示。" class="headerlink" title="【例2.8】求 1−1&#x2F;2+1&#x2F;3−1&#x2F;4+⋯+1&#x2F;99−1&#x2F;100，用伪代码表示。"></a>【例2.8】求 1−1&#x2F;2+1&#x2F;3−1&#x2F;4+⋯+1&#x2F;99−1&#x2F;100，用伪代码表示。</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">begin	(算法开始)<br>    1=&gt;sign<br>    1=&gt;sum<br>    2=&gt;deno<br>    while deno≤100<br>    &#123;    (-1)*sign=&gt;sign<br>         sign*(1/deno)=&gt;term<br>         sum+term=&gt;sum<br>         deno+1=&gt;deno<br>    &#125;<br>    print sum<br>end	(算法结束)<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="用计算机语言表示算法"><a href="#用计算机语言表示算法" class="headerlink" title="用计算机语言表示算法"></a>用计算机语言表示算法</h3><h4 id="【例2-9】将例2-7表示的算法（求5-）用C语言表示。"><a href="#【例2-9】将例2-7表示的算法（求5-）用C语言表示。" class="headerlink" title="【例2.9】将例2.7表示的算法（求5!）用C语言表示。"></a>【例2.9】将例2.7表示的算法（求5!）用C语言表示。</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>&#123;<br>	<span class="hljs-type">int</span> i,p;<br>	p=<span class="hljs-number">1</span>;<br>	i=<span class="hljs-number">2</span>;<br>	<span class="hljs-keyword">while</span>(i&lt;=<span class="hljs-number">5</span>)<br>		&#123;<br>			p=p*i;<br>			i=i+<span class="hljs-number">1</span>;<br>		&#125;<br>	<span class="hljs-built_in">printf</span>(″%d\n″,p);<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="【例2-10】将例2-8表示的算法求1-1-2-1-3-1-4-⋯-1-99-1-100的值用C语言表示。"><a href="#【例2-10】将例2-8表示的算法求1-1-2-1-3-1-4-⋯-1-99-1-100的值用C语言表示。" class="headerlink" title="【例2.10】将例2.8表示的算法求1-1&#x2F;2+1&#x2F;3-1&#x2F;4+⋯+1&#x2F;99-1&#x2F;100的值用C语言表示。"></a>【例2.10】将例2.8表示的算法求1-1&#x2F;2+1&#x2F;3-1&#x2F;4+⋯+1&#x2F;99-1&#x2F;100的值用C语言表示。</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>&#123;<br>	<span class="hljs-type">int</span> sign=<span class="hljs-number">1</span>;<br>	<span class="hljs-type">double</span> deno=<span class="hljs-number">2.0</span>,sum=<span class="hljs-number">1.0</span>,term;<br>	<span class="hljs-keyword">while</span>(deno&lt;=<span class="hljs-number">100</span>)<br>		&#123;<br>			sign=-sign;<br>			term=sign/deno;<br>			sum=sum+term;<br>			deno=deno+<span class="hljs-number">1</span>;<br>		&#125;<br>	<span class="hljs-built_in">printf</span>(″%f\n″,sum);<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="4、总结"><a href="#4、总结" class="headerlink" title="4、总结"></a>4、总结</h2><ol>
+<li>算法 + 数据结构 &#x3D; 程序。程序设计有4个要素：算法是灵魂，数据结构是加工对象，语言是工具，编程采用结构化程序设计方法。算法是解题方法的精确描述。</li>
+<li>表述算法可以用：自然语言、传统流程图、结构化流程图、伪代码和计算机语言等工具。</li>
+<li>结构化程序的三种基本结构是：顺序结构、选择结构和循环结构。由三种基本结构可以构成一个结构化程序。</li>
+<li>写出程序只是用计算机语言表示了算法，只有运行程序才是实现了算法。</li>
+<li>对于规模较大任务，应当采取结构化程序设计方法，其要要点是：自顶向下，逐步细化。在编程时还要注意用模块化设计和结构化编程。</li>
+</ol>
+<!-- flag of hidden posts -->
+    </div>
+    
+    <div class="post__license">
+        <p>
+            <strong>本文作者：</strong>WindsorWu
+        </p>
+        <p>
+            <strong>
+                本文链接：
+            </strong>
+            <a href="https://blog.nekolin.top/2022/09/19/StudyC-02/">https://blog.nekolin.top/2022/09/19/StudyC-02/</a>
+        </p>
+        
+            <strong>
+                <p>文章默认使用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a> 协议进行许可，使用时请注意遵守协议。</p>
+
+            </strong>
+        
+    </div>
+ 
+    <div class="post-footer__meta"><p>更新于 2024-12-09</p></div> 
+    <div class="post-entry__tags"><a href="/tags/C-C/" class="post-tags__link button"># C/C++</a></div> 
+</article>
+
+
+
+
+
+
+</main>
+
+            <footer class="footer">
+     
+    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2022&nbsp;-&nbsp;2025 <a href="/">温莎酱部落格</a>
+        </p>
+    
+    
+        
+            <p><a target="_blank" rel="noopener" href="https://icp.gov.moe/?keyword=20232523">萌ICP备20232523号</a></p>
+
+        
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+        
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+    <script>
+        window.lazyLoadOptions = {
+            elements_selector: ".lazy",
+            threshold: 0
+        };
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement('script');
+            hm.src = 'https://hm.baidu.com/hm.js?9a2b4d30adc3d825fc137f3a49b91fa8';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+
+    <script src='https://cdn.jsdelivr.net/npm/mermaid@8.10.2/dist/mermaid.min.js'></script>
+    <script>
+            mermaid.initialize(JSON.stringify(''));
+    </script>
+ 
+
+ 
+
+
+
+
+    </body>
+</html>

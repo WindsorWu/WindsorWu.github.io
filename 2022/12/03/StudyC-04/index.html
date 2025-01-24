@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+        <link rel="shortcut icon" href="/img/favicon.ico">
+    
+    
+        <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    
+    
+        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    
+    
+        <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+    
+    
+        <link rel="mask-icon" href="/img/safari-pinned-tab.svg">
+    
+
+
+    <!-- meta -->
+
+
+<title>C语言程序设计 第四章 | 温莎酱部落格</title><meta name="robots" content="noindex">
+
+
+    <meta name="keywords" content="C/C++">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="马上就要期末考试啦，抓紧时间复习~">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言程序设计 第四章">
+<meta property="og:url" content="https://blog.nekolin.top/2022/12/03/StudyC-04/index.html">
+<meta property="og:site_name" content="温莎酱部落格">
+<meta property="og:description" content="马上就要期末考试啦，抓紧时间复习~">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/12/03/IF1.jpg">
+<meta property="article:published_time" content="2022-12-03T07:27:00.000Z">
+<meta property="article:modified_time" content="2024-12-09T06:50:36.965Z">
+<meta property="article:author" content="WindsorWu">
+<meta property="article:tag" content="C&#x2F;C++">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/12/03/IF1.jpg">
+
+
+    
+<link rel="stylesheet" href="/css/style/main.css">
+ 
+
+    
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="/css/highlight/hljs.css" media="none" >
+        
+            <link rel="stylesheet" id="hl-dark-theme" href="/css/highlight/hljs.dark.css" media="none">
+        
+    
+
+    
+
+    
+    
+<link rel="stylesheet" href="/css/style/dark.css">
+
+    
+<script src="/js/darkmode.js"></script>
+
+
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="/" class="button">
+            <span class="logo__text">WindsorWu&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/" class="navbar-menu button">首页</a>
+                
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
+                    <a href="/total/" class="navbar-menu button">分类</a>
+                
+                    <a href="/links/" class="navbar-menu button">友链</a>
+                
+                    <a href="/about/" class="navbar-menu button">关于</a>
+                
+                    <a target="_blank" rel="noopener" href="https://status.nekolin.top/" class="navbar-menu button">监测</a>
+                
+            </div>
+        
+        
+        
+    <a href="/search/" id="btn-search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="32"><path d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z"></path></svg>
+    </a>
+
+
+        
+        
+    <a href="javaScript:void(0);" id="btn-toggle-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </a>
+
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/" class="dropdown-menu button">首页</a>
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a href="/total/" class="dropdown-menu button">分类</a>
+                
+                    <a href="/links/" class="dropdown-menu button">友链</a>
+                
+                    <a href="/about/" class="dropdown-menu button">关于</a>
+                
+                    <a target="_blank" rel="noopener" href="https://status.nekolin.top/" class="dropdown-menu button">监测</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        C语言程序设计 第四章
+    </h1>
+    <div class="post-title__meta">
+        <a href="/archives/2022/12/" class="post-meta__date button">2022-12-03</a>
+        
+    <span class="separate-dot"></span><a href="/categories/%E7%AC%94%E8%AE%B0/" class="button">笔记</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+
+<article class="post content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <p> 马上就要期末考试啦，抓紧时间复习~</p>
+<span id="more"></span>
+
+<h1 id="第4章-选择结构程序设计"><a href="#第4章-选择结构程序设计" class="headerlink" title="第4章 选择结构程序设计"></a>第4章 选择结构程序设计</h1><h2 id="1、选择结构和条件判断"><a href="#1、选择结构和条件判断" class="headerlink" title="1、选择结构和条件判断"></a>1、选择结构和条件判断</h2><p><strong>C语言有两种选择语句</strong></p>
+<ul>
+<li><p><strong>if语句</strong>，用来实现<strong>两个分支</strong>的选择结构</p>
+</li>
+<li><p><strong>switch</strong>语句，用来实现<strong>多分支</strong>的选择结构</p>
+</li>
+</ul>
+<h3 id="【例4-1】在例3-5的基础上对程序进行改进。题目要求解得ax2-bx-c-0方程的根。由键盘输入a-b-c。假设a-b-c的值任意，并不保证b2-4ac≥0。需要在程序中进行判别，如果b2-4ac≥0，就计算并输出方程的两个实根，如果b2-4ac"><a href="#【例4-1】在例3-5的基础上对程序进行改进。题目要求解得ax2-bx-c-0方程的根。由键盘输入a-b-c。假设a-b-c的值任意，并不保证b2-4ac≥0。需要在程序中进行判别，如果b2-4ac≥0，就计算并输出方程的两个实根，如果b2-4ac" class="headerlink" title="【例4.1】在例3.5的基础上对程序进行改进。题目要求解得ax2+bx+c&#x3D;0方程的根。由键盘输入a,b,c。假设a,b,c的值任意，并不保证b2-4ac≥0。需要在程序中进行判别，如果b2-4ac≥0，就计算并输出方程的两个实根，如果b2-4ac&lt;0，就输出“此方程无实根”的信息。"></a>【例4.1】在例3.5的基础上对程序进行改进。题目要求解得ax2+bx+c&#x3D;0方程的根。由键盘输入a,b,c。假设a,b,c的值任意，并不保证b2-4ac≥0。需要在程序中进行判别，如果b2-4ac≥0，就计算并输出方程的两个实根，如果b2-4ac&lt;0，就输出“此方程无实根”的信息。</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;math.h&gt;</span>				<span class="hljs-comment">//程序中要调用求平方根函数sqrt</span></span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span> <br>&#123;	<span class="hljs-type">double</span> a,b,c,disc,x1,x2,p,q;	<span class="hljs-comment">//disc是判别式sqrt(b*b-4ac)  </span><br>	<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%lf%lf%lf&quot;</span>,&amp;a,&amp;b,&amp;c);	<span class="hljs-comment">//输入双精度浮点型变量的值要用格式声明&quot;%lf&quot;  </span><br>	disc=b*b<span class="hljs-number">-4</span>*a*c;<br>	<span class="hljs-keyword">if</span>(disc&lt;<span class="hljs-number">0</span>)					<span class="hljs-comment">//若b*b-4ac&lt;0</span><br>		<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;This equation hasn&#x27;t real roots\n&quot;</span>);	<span class="hljs-comment">//输出“此方程无实根”</span><br>	<span class="hljs-keyword">else</span>						<span class="hljs-comment">//b*b-4ac≥0</span><br>	&#123;	p=-b/(<span class="hljs-number">2.0</span>*a);<br>		q=<span class="hljs-built_in">sqrt</span>(disc)/(<span class="hljs-number">2.0</span>*a);<br>		x1=p+q;x2=p-q;		<span class="hljs-comment">//求出方程的两个根  </span><br>		<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;real roots:\nx1=%7.2f\nx2=%7.2f\n&quot;</span>,x1,x2);	<span class="hljs-comment">//输出方程的两个根  </span><br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="2、用if语句实现选择结构"><a href="#2、用if语句实现选择结构" class="headerlink" title="2、用if语句实现选择结构"></a>2、用if语句实现选择结构</h2><h3 id="【例4-2】输入两个实数，按由小到大的顺序输出这两个数。"><a href="#【例4-2】输入两个实数，按由小到大的顺序输出这两个数。" class="headerlink" title="【例4.2】输入两个实数，按由小到大的顺序输出这两个数。"></a>【例4.2】输入两个实数，按由小到大的顺序输出这两个数。</h3><h4 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h4><p>只要做一次比较，然后进行一次交换即可。用if语句实现条件判断。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>&#123;<br>	<span class="hljs-type">float</span> a,b,t;<br>	<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%f,%f&quot;</span>,&amp;a,&amp;b);<br>	<span class="hljs-keyword">if</span>(a&gt;b)<br>	&#123;			<span class="hljs-comment">//将a和b的值互换</span><br>		t=a;<br>		a=b;<br>		b=t;<br>	&#125;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%5.2f,%5.2f\n&quot;</span>,a,b);<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="【例4-3】输入3个数a，b，c，要求按由小到大的顺序输出。"><a href="#【例4-3】输入3个数a，b，c，要求按由小到大的顺序输出。" class="headerlink" title="【例4.3】输入3个数a，b，c，要求按由小到大的顺序输出。"></a>【例4.3】输入3个数a，b，c，要求按由小到大的顺序输出。</h3><h4 id="算法步骤"><a href="#算法步骤" class="headerlink" title="算法步骤"></a>算法步骤</h4><p>S1: if a&gt;b，将a和b对换</p>
+<p>(交换后，a是a、b中的小者)</p>
+<p>S2: if a&gt;c，将a和c对换</p>
+<p>(交换后，a是a、c中的小者，因此a是三者中最小者)</p>
+<p>S3: if b&gt;c，将b和c对换</p>
+<p>(交换后，b是b、c中的小者，也是三者中次小者)</p>
+<p>S4: 顺序输出a，b，c</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>&#123;<br>	<span class="hljs-type">float</span> a,b,c,t;<br>	<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%f,%f,%f&quot;</span>,&amp;a,&amp;b,&amp;c);<br>	<span class="hljs-keyword">if</span>(a&gt;b)<br>	&#123;	t=a;		<span class="hljs-comment">//借助变量t，实现变量a和变量b互换值</span><br>		a=b;<br>		b=t;<br>	&#125;			<span class="hljs-comment">//互换后，a小于或等于b     </span><br>	<span class="hljs-keyword">if</span>(a&gt;c)<br>	&#123;	t=a;		<span class="hljs-comment">//借助变量t，实现变量a和变量c互换值</span><br>		a=c;<br>		c=t;<br>	&#125;			<span class="hljs-comment">//互换后，a小于或等于c       </span><br>	<span class="hljs-keyword">if</span>(b&gt;c)		<span class="hljs-comment">//还要</span><br>	&#123;	t=b;		<span class="hljs-comment">//借助变量t，实现变量b和变量c互换值</span><br>		b=c;<br>		c=t;<br>	&#125;			<span class="hljs-comment">//互换后，b小于或等于c                       </span><br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%5.2f,%5.2f,%5.2f\n&quot;</span>,a,b,c); 		<span class="hljs-comment">//顺序输出a,b,c的值</span><br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="if语句的一般形式"><a href="#if语句的一般形式" class="headerlink" title="if语句的一般形式"></a>if语句的一般形式</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">if</span> (表达式) 语句<span class="hljs-number">1</span><br>[ <span class="hljs-keyword">else</span>  语句<span class="hljs-number">2</span> ]<br></code></pre></td></tr></table></figure>
+
+<img src="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/12/03/IF1.jpg" class="lazy" data-srcset="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/12/03/IF1.jpg" srcset="/img/loading.gif" style="zoom: 67%;" />
+
+<h3 id="【例4-5】任务要求：有一函数如下。编程序，要求输入一个x值后，输出y值。："><a href="#【例4-5】任务要求：有一函数如下。编程序，要求输入一个x值后，输出y值。：" class="headerlink" title="【例4.5】任务要求：有一函数如下。编程序，要求输入一个x值后，输出y值。："></a>【例4.5】任务要求：有一函数如下。编程序，要求输入一个x值后，输出y值。：</h3><p>$$<br>y&#x3D;<br>\begin{cases}<br>    &amp;-1\quad(x\lt0)\<br>    &amp;0\quad(x&#x3D;0)\<br>    &amp;1\quad(x\gt1)<br>\end{cases}<br>$$</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>&#123;	<span class="hljs-type">int</span> x,y;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;enter x:&quot;</span>);<br>	<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;x);<br>	<span class="hljs-keyword">if</span>(x&lt;<span class="hljs-number">0</span>)<br>		y=<span class="hljs-number">-1</span>;<br>	<span class="hljs-keyword">else</span><br>		<span class="hljs-keyword">if</span>(x==<span class="hljs-number">0</span>)y=<span class="hljs-number">0</span>;<br>		<span class="hljs-keyword">else</span> y=<span class="hljs-number">1</span>;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;x=%d,y=%d\n&quot;</span>,x,y); <br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="3、选择结构中的关系运算"><a href="#3、选择结构中的关系运算" class="headerlink" title="3、选择结构中的关系运算"></a>3、选择结构中的关系运算</h2><h3 id="关系运算符及其优先次序"><a href="#关系运算符及其优先次序" class="headerlink" title="关系运算符及其优先次序"></a>关系运算符及其优先次序</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c">＜	（小于）<br>&lt;=	（小于等于）<br>&gt;	（大于）<br>&gt;=	（大于等于）<br>==	（等于）<br>!=	（不等于）<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>前４种关系运算符的优先级别相同，后2种也相同。前４种高于后２种。</li>
+<li>关系运算符的优先级低于算术运算符。</li>
+<li>关系运算符的优先级高于赋值运算符。</li>
+</ul>
+<ol>
+<li>c&gt;a+b 等效于c&gt;(a+b) <strong>(关系运算符的优先级低于算术运算符)</strong></li>
+<li>a&gt;b&#x3D;&#x3D;c等效于(a&gt;b)&#x3D;&#x3D;c <strong>(大于运算符&gt;的优先级高于相等运算符&#x3D;&#x3D;)</strong></li>
+<li>a&#x3D;&#x3D;b&lt;c等效于a&#x3D;&#x3D;(b&lt;c) <strong>(小于运算符&lt;的优先级高于相等运算符&#x3D;&#x3D;)</strong></li>
+<li>a&#x3D;b&gt;c等效于a&#x3D;(b&gt;c) <strong>(关系运算符的优先级高于赋值运算符)</strong></li>
+</ol>
+<h2 id="4、选择结构中的逻辑运算"><a href="#4、选择结构中的逻辑运算" class="headerlink" title="4、选择结构中的逻辑运算"></a>4、选择结构中的逻辑运算</h2><h3 id="逻辑运算符及其优先次序"><a href="#逻辑运算符及其优先次序" class="headerlink" title="逻辑运算符及其优先次序"></a>逻辑运算符及其优先次序</h3><table>
+<thead>
+<tr>
+<th><strong>运算符</strong></th>
+<th><strong>含义</strong></th>
+<th><strong>举例</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>!</td>
+<td>逻辑非(NOT)</td>
+<td>!a</td>
+<td>如果a为假，则!a为真;如果a为真，则!a为假</td>
+</tr>
+<tr>
+<td>&amp;&amp;</td>
+<td>逻辑与(AND)</td>
+<td>a &amp;&amp; b</td>
+<td>如果a和b都为真，则结果为真，否则为假</td>
+</tr>
+<tr>
+<td>||</td>
+<td>逻辑或(OR)</td>
+<td>a || b</td>
+<td>如果a和b有一个以上为真，则结果为真，二者都为假时，结果为假</td>
+</tr>
+</tbody></table>
+<p><strong>优先次序：!(非)→＆＆(与)→‖(或)， 即“！”为三者中最高的； 逻辑运算符中的“＆＆”和“‖”低于关系运算符，“！”高于算术运算符</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">if</span> (x!=<span class="hljs-number">0</span>) 语句<span class="hljs-number">1</span>			<span class="hljs-comment">//括号内的表达式是关系表达式，如果x不等于0，执行语句1</span><br><span class="hljs-keyword">if</span> (x&gt;<span class="hljs-number">0</span> &amp;&amp; y&gt;<span class="hljs-number">0</span>) 语句<span class="hljs-number">2</span>		<span class="hljs-comment">//表达式是逻辑表达式，如果x和y都大于0，执行语句2</span><br><span class="hljs-keyword">if</span> (x) 语句<span class="hljs-number">3</span>				<span class="hljs-comment">//表达式是变量，如果x不等于0，则条件判断结果为真，执行语句3</span><br><span class="hljs-keyword">if</span> (<span class="hljs-number">1</span>) 语句<span class="hljs-number">4</span>				<span class="hljs-comment">//表达式是非0整数, 条件判断结果为真，执行语句4</span><br><span class="hljs-keyword">if</span> (<span class="hljs-number">0</span>) 语句<span class="hljs-number">5</span>				<span class="hljs-comment">//表达式是整数0,条件判断结果为假，不执行语句5，接着执行下一语句</span><br><span class="hljs-keyword">if</span>(x+<span class="hljs-number">3.5</span>) 语句<span class="hljs-number">6</span>			<span class="hljs-comment">//表达式是实数表达式，若x+3.5不等于0，则条件判断结果为真，执行语句6</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p><strong>例如：判别用year表示的某一年是否闰年，可以用一个逻辑表达式来表示。闰年的条件是符合下面二者之一: ①能被４整除，但不能被100整除，如2008。②能被400整除，如2000。</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">//对应的逻辑表达式：</span><br>(year % <span class="hljs-number">4</span> == <span class="hljs-number">0</span> &amp;&amp; year % <span class="hljs-number">100</span> != <span class="hljs-number">0</span>) ‖ year % <span class="hljs-number">400</span> == <span class="hljs-number">0</span> <br><br><span class="hljs-comment">//若判别非闰年，则对应的逻辑表达式：</span><br>!((year % <span class="hljs-number">4</span> == <span class="hljs-number">0</span> &amp;&amp; year % <span class="hljs-number">100</span> != <span class="hljs-number">0</span>) ‖ year % <span class="hljs-number">400</span> == <span class="hljs-number">0</span>) <br>(year % <span class="hljs-number">4</span> != <span class="hljs-number">0</span>) || (year % <span class="hljs-number">100</span> == <span class="hljs-number">0</span> &amp;&amp; year % <span class="hljs-number">400</span> != <span class="hljs-number">0</span>) <br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="5、条件运算符和条件表达式"><a href="#5、条件运算符和条件表达式" class="headerlink" title="5、条件运算符和条件表达式"></a>5、条件运算符和条件表达式</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c">表达式<span class="hljs-number">1</span> ? 表达式<span class="hljs-number">2</span> : 表达式<span class="hljs-number">3</span><br></code></pre></td></tr></table></figure>
+
+<p>条件运算符由两个符号(?和:)组成，必须一起使用。要求有3个操作对象，称为三目(元)运算符，它是Ｃ语言中唯一的一个三目运算符。</p>
+<p>条件运算符的执行顺序: 先求解表达式1，若为非0(真)则求解表达式２，此时表达式２的值就作为整个条件表达式的值。若表达式1的值为0(假)，则求解表达式３，表达式３的值就是整个条件表达式的值。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">if</span> (a&gt;b)<br>	max=a;<br><span class="hljs-keyword">else</span> <br>	max=b;<br><span class="hljs-comment">//可转换成</span><br>max=(a&gt;b) ? a : b;<br>a&gt;b ? (max=a) : (max=b);  <span class="hljs-comment">//表达式2和表达式3是赋值表达式</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="【例4-4】输入一个字符，判别它是否为大写字母，如果是，将它转换成小写字母；如果不是，不转换。然后输出最后得到的字符。"><a href="#【例4-4】输入一个字符，判别它是否为大写字母，如果是，将它转换成小写字母；如果不是，不转换。然后输出最后得到的字符。" class="headerlink" title="【例4.4】输入一个字符，判别它是否为大写字母，如果是，将它转换成小写字母；如果不是，不转换。然后输出最后得到的字符。"></a>【例4.4】输入一个字符，判别它是否为大写字母，如果是，将它转换成小写字母；如果不是，不转换。然后输出最后得到的字符。</h3><h4 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h4><p>用条件表达式来处理，当字母是大写时，转换成小写字母，否则不转换。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>&#123;<br>	<span class="hljs-type">char</span> ch;<br>	<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%c&quot;</span>,&amp;ch);<br>	ch=(ch&gt;=<span class="hljs-string">&#x27;A&#x27;</span>&amp;&amp;ch&lt;=<span class="hljs-string">&#x27;Z&#x27;</span>)?(ch+<span class="hljs-number">32</span>):ch;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%c\n&quot;</span>,ch);<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="6、选择结构的嵌套"><a href="#6、选择结构的嵌套" class="headerlink" title="6、选择结构的嵌套"></a>6、选择结构的嵌套</h2><h3 id="if与else的配对关系"><a href="#if与else的配对关系" class="headerlink" title="if与else的配对关系"></a>if与else的配对关系</h3><p>else总是与它上面的最近的未配对的if配对。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">if</span>()<br>	<span class="hljs-keyword">if</span>()	<span class="hljs-comment">//语句1</span><br><span class="hljs-keyword">else</span><br>	<span class="hljs-keyword">if</span>()	<span class="hljs-comment">//语句2</span><br><span class="hljs-keyword">else</span>		<span class="hljs-comment">//语句3</span><br></code></pre></td></tr></table></figure>
+
+<p>编程序者把else写在与第1个if(外层if)同一列上，意图是使else与第1个if对应，但实际上else是与第2个if配对，因为它们相距最近。</p>
+<p>如果if与else的数目不一样，为实现程序设计者的思想,可以加花括号来确定配对关系。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">if</span>()<br>&#123;<br>	<span class="hljs-keyword">if</span>()	<span class="hljs-comment">//语句1		内嵌if</span><br>&#125;<br><span class="hljs-keyword">else</span>		<span class="hljs-comment">//语句2</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="【例4-5】有一阶跃函数如下。编一程序-输入一个x值，要求输出相应的y值。"><a href="#【例4-5】有一阶跃函数如下。编一程序-输入一个x值，要求输出相应的y值。" class="headerlink" title="【例4.5】有一阶跃函数如下。编一程序,输入一个x值，要求输出相应的y值。"></a>【例4.5】有一阶跃函数如下。编一程序,输入一个x值，要求输出相应的y值。</h3><p>$$<br>y&#x3D;<br>\begin{cases}<br>    &amp;-1\quad(x\lt0)\<br>    &amp;0\quad(x&#x3D;0)\<br>    &amp;1\quad(x\gt1)<br>\end{cases}<br>$$</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>&#123;<br>	<span class="hljs-type">int</span> x,y;<br>	<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;x);<br>	<span class="hljs-keyword">if</span>(x&gt;=<span class="hljs-number">0</span>)<br>		<span class="hljs-keyword">if</span>(x&gt;<span class="hljs-number">0</span>) y=<span class="hljs-number">1</span>;<br>		<span class="hljs-keyword">else</span>    y=<span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">else</span> 		y=<span class="hljs-number">-1</span>;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;x=%d,y=%d\n&quot;</span>,x,y);<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="7、多分支选择结构"><a href="#7、多分支选择结构" class="headerlink" title="7、多分支选择结构"></a>7、多分支选择结构</h2><h3 id="利用switch语句实现多分支选择结构"><a href="#利用switch语句实现多分支选择结构" class="headerlink" title="利用switch语句实现多分支选择结构"></a>利用switch语句实现多分支选择结构</h3><h4 id="【例4-6】任务要求：要求按照考试成绩的等级输出百分制分数段，A等为85分以上，B等为70～84分，C等为60～69分，D等为-60分以下。成绩的等级由键盘输入。"><a href="#【例4-6】任务要求：要求按照考试成绩的等级输出百分制分数段，A等为85分以上，B等为70～84分，C等为60～69分，D等为-60分以下。成绩的等级由键盘输入。" class="headerlink" title="【例4.6】任务要求：要求按照考试成绩的等级输出百分制分数段，A等为85分以上，B等为70～84分，C等为60～69分，D等为 60分以下。成绩的等级由键盘输入。"></a>【例4.6】任务要求：要求按照考试成绩的等级输出百分制分数段，A等为85分以上，B等为70～84分，C等为60～69分，D等为 60分以下。成绩的等级由键盘输入。</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>&#123;<br>	<span class="hljs-type">char</span> grade;<br>	<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%c&quot;</span>,&amp;grade);<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Your score:&quot;</span>);<br>	<span class="hljs-keyword">switch</span>(grade)<br>	&#123;<br>	<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;A&#x27;</span>: <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;85～100\n&quot;</span>);<span class="hljs-keyword">break</span>;<br>	<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;B&#x27;</span>: <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;70～84\n&quot;</span>);<span class="hljs-keyword">break</span>;<br>	<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;C&#x27;</span>: <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;60～69\n&quot;</span>);<span class="hljs-keyword">break</span>;<br>	<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;D&#x27;</span>: <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;&lt;60\n&quot;</span>);<span class="hljs-keyword">break</span>;    <br>	<span class="hljs-keyword">default</span>:  <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;enter data error!\n&quot;</span>);<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>等级grade定义为字符变量，从键盘输入一个大写字母，赋给变量grade，switch得到grade的值并把它和各case中给定的值(′A′,′B′,′C′,′D′之一)相比较，如果和其中之一相同(称为匹配)，则执行该case后面的语句(即printf语句)。<br>如果输入的字符与′A′,′B′,′C′,′D′都不相同，就执行default后面的语句，<br>注意在每个case后面后的语句中，最后都有一个break语句，它的作用是使流程转到switch语句的末尾(即右花括号处)。</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">switch</span>(表达式)<br>&#123;<br><span class="hljs-keyword">case</span>	常量<span class="hljs-number">1</span> : 语句<span class="hljs-number">1</span><br><span class="hljs-keyword">case</span>	常量<span class="hljs-number">2</span> : 语句<span class="hljs-number">2</span><br>    ⋮	    ⋮		⋮<br><span class="hljs-keyword">case</span>	常量n : 语句n<br><span class="hljs-keyword">default</span> :	    语句n+<span class="hljs-number">1</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li>括号内的“表达式”，其值的类型应为整数类型(包括字符型)。</li>
+<li>花括号内是一个复合语句，内包含多个以关键字case开头的语句行和最多一个以default开头的行。case后面跟一个常量(或常量表达式)，它们和default都是起标号作用，用来标志一个位置。执行switch语句时，先计算switch后面的“表达式”的值，然后将它与各case标号比较，如果与某一个case标号中的常量相同，流程就转到此case标号后面的语句。如果没有与switch表达式相匹配的case常量，流程转去执行default标号后面的语句。</li>
+<li>可以没有default标号，此时如果没有与switch表达式相匹配的case常量，则不执行任何语句。</li>
+<li>各个case标号出现次序不影响执行结果。</li>
+<li>每一个case常量必须互不相同；否则就会出现互相矛盾的现象。</li>
+<li>case标号只起标记的作用。在执行switch语句时，根据switch表达式的值找到匹配的入口标号，在执行完一个case标号后面的语句后，就从此标号开始执行下去，不再进行判断。因此，一般情况下，在执行一个case子句后，应当用break语句使流程跳出switch结构。最后一个case子句(今为default子句)中可不加break语句。</li>
+<li>在case子句中虽然包含了一个以上执行语句，但可以不必用花括号括起来，会自动顺序执行本case标号后面所有的语句。当然加上花括号也可以。</li>
+<li>多个case标号可以共用一组执行语句。</li>
+</ol>
+<h3 id="Switch语句举例"><a href="#Switch语句举例" class="headerlink" title="Switch语句举例"></a>Switch语句举例</h3><h5 id="【例4-7】用switch语句处理菜单命令。在许多应用程序中，用菜单对流程进行控制，例如从键盘输入一个′A′或′a′字符，就会执行A操作，输入一个′B′或′b′字符，就会执行B操作。"><a href="#【例4-7】用switch语句处理菜单命令。在许多应用程序中，用菜单对流程进行控制，例如从键盘输入一个′A′或′a′字符，就会执行A操作，输入一个′B′或′b′字符，就会执行B操作。" class="headerlink" title="【例4.7】用switch语句处理菜单命令。在许多应用程序中，用菜单对流程进行控制，例如从键盘输入一个′A′或′a′字符，就会执行A操作，输入一个′B′或′b′字符，就会执行B操作。"></a>【例4.7】用switch语句处理菜单命令。在许多应用程序中，用菜单对流程进行控制，例如从键盘输入一个′A′或′a′字符，就会执行A操作，输入一个′B′或′b′字符，就会执行B操作。</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>&#123;	<span class="hljs-type">void</span> <span class="hljs-title function_">action1</span><span class="hljs-params">(<span class="hljs-type">int</span>,<span class="hljs-type">int</span>)</span>,<span class="hljs-title function_">action2</span><span class="hljs-params">(<span class="hljs-type">int</span>,<span class="hljs-type">int</span>)</span>;	<span class="hljs-comment">//函数声明</span><br>	<span class="hljs-type">char</span> ch;<br>	<span class="hljs-type">int</span> a=<span class="hljs-number">15</span>,b=<span class="hljs-number">23</span>;<br>	ch=getchar();<br>	<span class="hljs-keyword">switch</span>(ch)<br>	&#123; 	<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;a&#x27;</span>:<br>		<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;A&#x27;</span>: action1(a,b);<span class="hljs-keyword">break</span>;		<span class="hljs-comment">//调用action1函数，执行A操作</span><br>		<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;b&#x27;</span>:<br>		<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;B&#x27;</span>: action2(a,b);<span class="hljs-keyword">break</span>;		<span class="hljs-comment">//调用action2函数，执行B操作</span><br>			⋮<br>		<span class="hljs-keyword">default</span>:  <span class="hljs-built_in">putchar</span>(<span class="hljs-string">&#x27;\a&#x27;</span>);			 <span class="hljs-comment">//如果输入其他字符，发出警告</span><br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><span class="hljs-type">void</span> <span class="hljs-title function_">action1</span><span class="hljs-params">(<span class="hljs-type">int</span> x,<span class="hljs-type">int</span> y)</span>		<span class="hljs-comment">//执行加法的函数</span><br>&#123;	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;x+y=%d\n&quot;</span>,x+y);<br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">action2</span><span class="hljs-params">(<span class="hljs-type">int</span> x,<span class="hljs-type">int</span> y)</span>		<span class="hljs-comment">//执行乘法的函数</span><br>&#123;	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;x*y=%d\n&quot;</span>,x*y);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<!-- flag of hidden posts -->
+    </div>
+    
+    <div class="post__license">
+        <p>
+            <strong>本文作者：</strong>WindsorWu
+        </p>
+        <p>
+            <strong>
+                本文链接：
+            </strong>
+            <a href="https://blog.nekolin.top/2022/12/03/StudyC-04/">https://blog.nekolin.top/2022/12/03/StudyC-04/</a>
+        </p>
+        
+            <strong>
+                <p>文章默认使用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a> 协议进行许可，使用时请注意遵守协议。</p>
+
+            </strong>
+        
+    </div>
+ 
+    <div class="post-footer__meta"><p>更新于 2024-12-09</p></div> 
+    <div class="post-entry__tags"><a href="/tags/C-C/" class="post-tags__link button"># C/C++</a></div> 
+</article>
+
+
+
+
+
+
+</main>
+
+            <footer class="footer">
+     
+    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2022&nbsp;-&nbsp;2025 <a href="/">温莎酱部落格</a>
+        </p>
+    
+    
+        
+            <p><a target="_blank" rel="noopener" href="https://icp.gov.moe/?keyword=20232523">萌ICP备20232523号</a></p>
+
+        
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+        
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+    <script>
+        window.lazyLoadOptions = {
+            elements_selector: ".lazy",
+            threshold: 0
+        };
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement('script');
+            hm.src = 'https://hm.baidu.com/hm.js?9a2b4d30adc3d825fc137f3a49b91fa8';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+
+    <script src='https://cdn.jsdelivr.net/npm/mermaid@8.10.2/dist/mermaid.min.js'></script>
+    <script>
+            mermaid.initialize(JSON.stringify(''));
+    </script>
+ 
+
+ 
+
+
+
+
+    </body>
+</html>

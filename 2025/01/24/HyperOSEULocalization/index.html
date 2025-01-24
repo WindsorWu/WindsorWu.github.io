@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+        <link rel="shortcut icon" href="/img/favicon.ico">
+    
+    
+        <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    
+    
+        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    
+    
+        <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+    
+    
+        <link rel="mask-icon" href="/img/safari-pinned-tab.svg">
+    
+
+
+    <!-- meta -->
+
+
+<title>HyperOS EU 欧洲版 本地化 Magisk 模块 | 温莎酱部落格</title>
+
+
+    <meta name="keywords" content="Magisk, HyperOS, HyperOS.EU, HyperOS本地化, 中文">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="请尊重他人的劳动成果！ 对本模块进行再发布或者修改请不要抹去原作者的信息，转载请注明来源，谢谢。 使用模块前必须进行整机备份，以免耽误工作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HyperOS EU 欧洲版 本地化 Magisk 模块">
+<meta property="og:url" content="https://blog.nekolin.top/2025/01/24/HyperOSEULocalization/index.html">
+<meta property="og:site_name" content="温莎酱部落格">
+<meta property="og:description" content="请尊重他人的劳动成果！ 对本模块进行再发布或者修改请不要抹去原作者的信息，转载请注明来源，谢谢。 使用模块前必须进行整机备份，以免耽误工作">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-01-24T08:30:00.000Z">
+<meta property="article:modified_time" content="2025-01-24T08:59:28.296Z">
+<meta property="article:author" content="WindsorWu">
+<meta property="article:tag" content="Magisk">
+<meta property="article:tag" content="HyperOS">
+<meta property="article:tag" content="HyperOS.EU">
+<meta property="article:tag" content="HyperOS本地化">
+<meta property="article:tag" content="中文">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="/css/style/main.css">
+ 
+
+    
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="/css/highlight/hljs.css" media="none" >
+        
+            <link rel="stylesheet" id="hl-dark-theme" href="/css/highlight/hljs.dark.css" media="none">
+        
+    
+
+    
+
+    
+    
+<link rel="stylesheet" href="/css/style/dark.css">
+
+    
+<script src="/js/darkmode.js"></script>
+
+
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="/" class="button">
+            <span class="logo__text">WindsorWu&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/" class="navbar-menu button">首页</a>
+                
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
+                    <a href="/total/" class="navbar-menu button">分类</a>
+                
+                    <a href="/links/" class="navbar-menu button">友链</a>
+                
+                    <a href="/about/" class="navbar-menu button">关于</a>
+                
+                    <a target="_blank" rel="noopener" href="https://status.nekolin.top/" class="navbar-menu button">监测</a>
+                
+            </div>
+        
+        
+        
+    <a href="/search/" id="btn-search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="32"><path d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z"></path></svg>
+    </a>
+
+
+        
+        
+    <a href="javaScript:void(0);" id="btn-toggle-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </a>
+
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/" class="dropdown-menu button">首页</a>
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a href="/total/" class="dropdown-menu button">分类</a>
+                
+                    <a href="/links/" class="dropdown-menu button">友链</a>
+                
+                    <a href="/about/" class="dropdown-menu button">关于</a>
+                
+                    <a target="_blank" rel="noopener" href="https://status.nekolin.top/" class="dropdown-menu button">监测</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        HyperOS EU 欧洲版 本地化 Magisk 模块
+    </h1>
+    <div class="post-title__meta">
+        <a href="/archives/2025/01/" class="post-meta__date button">2025-01-24</a>
+        
+    <span class="separate-dot"></span><a href="/categories/%E7%BC%96%E7%A8%8B/" class="button">编程</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+
+<article class="post content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <p><strong>请尊重他人的劳动成果！</strong></p>
+<p><strong>对本模块进行再发布或者修改请不要抹去原作者的信息，转载请注明来源，谢谢。</strong></p>
+<p><strong>使用模块前必须进行整机备份，以免耽误工作</strong></p>
+<span id="more"></span> 
+
+<p>本篇文章来源：<a target="_blank" rel="noopener" href="https://blog.minamigo.moe/archives/184">https://blog.minamigo.moe/archives/184</a></p>
+<h1 id="一、模块说明"><a href="#一、模块说明" class="headerlink" title="一、模块说明"></a>一、模块说明</h1><h2 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h2><p>本项目旨在为HyperOS EU用户恢复HyperOS大陆版的功能。HyperOS EU用户可通过使用此项目，同时获取HyperOS EU的功能和HyperOS 大陆版的功能。</p>
+<h2 id="2-项目内容"><a href="#2-项目内容" class="headerlink" title="2.项目内容"></a>2.项目内容</h2><p>本地化项目分为三个部分：Magisk模块、本地化工具箱App（Xposed模块）、直接安装apk文件就可以恢复的系统功能：</p>
+<h3 id="1-Magisk模块"><a href="#1-Magisk模块" class="headerlink" title="(1)Magisk模块"></a>(1)Magisk模块</h3><p>以下为Magisk模块的内容，<strong>安装时可选择恢复（本地化工具箱除外）</strong>：</p>
+<ul>
+<li>强制安装本地化工具箱，不可选择</li>
+<li>小米兰亭Pro字体</li>
+<li>AI通话</li>
+<li>生活黄页（来电号码识别）</li>
+<li>短信（验证码，推广短信归类）</li>
+<li>日历（农历、节假日调休详情、导入短信事件等）</li>
+<li>小米钱包（公交卡、门卡、银联卡）</li>
+<li>快应用</li>
+<li>全球上网（一元流量）</li>
+<li>全面屏键盘优化（仅支持小米版输入法）</li>
+<li>搜狗输入法小米版</li>
+<li>传送门</li>
+<li>小爱同学、小爱同学语音唤醒</li>
+<li>智能助理（负一屏、小部件）</li>
+<li>天气（降水概率地图）</li>
+<li>主题商店（字体和铃声切回大陆区）</li>
+<li>视频通话美颜（微信视频通话美颜）</li>
+<li>通知过滤</li>
+<li>音乐（MIUI x QQ音乐）</li>
+<li>录音机（应用通话录音，需机型支持）</li>
+<li>屏蔽国际版标识：大陆版设置界面（谷歌服务开关）、手机管家（游戏工具箱、视频工具箱、红包助手）、下载管理（迅雷加速）、MIUI+修复（需要机型本身支持）、通话（拨号界面营业厅、通话录音）等功能。</li>
+</ul>
+<h3 id="2-本地化工具箱App"><a href="#2-本地化工具箱App" class="headerlink" title="(2)本地化工具箱App"></a>(2)本地化工具箱App</h3><p>工具箱含有以下功能：</p>
+<ul>
+<li>[xposed]修复屏蔽国际版标识后，双开应用导致系统崩溃</li>
+<li>[xposed]修复屏蔽国际版标识后，FCM唤醒相关和应用后台问题</li>
+<li>[xposed]修复屏蔽国际版标识后，桌面无法使用谷歌助手作为负一屏和上滑搜索</li>
+<li>[xposed]修复屏蔽国际版标识后，状态栏使用应用原始图标开关失效</li>
+</ul>
+<h3 id="3-直接安装apk文件就可以恢复的系统功能："><a href="#3-直接安装apk文件就可以恢复的系统功能：" class="headerlink" title="(3)直接安装apk文件就可以恢复的系统功能："></a>(3)直接安装apk文件就可以恢复的系统功能：</h3><ul>
+<li>百度输入法小米版</li>
+<li>讯飞输入法小米版</li>
+<li>大陆版浏览器</li>
+<li>应用商店</li>
+</ul>
+<h2 id="3-兼容性说明"><a href="#3-兼容性说明" class="headerlink" title="3.兼容性说明"></a>3.兼容性说明</h2><p>本地化项目无法做到一个版本兼容所有的MIUI版本和机型，因此对兼容性有一定限制：</p>
+<ul>
+<li>HyperOS类别：仅兼容<strong>HyperOS2 EU</strong>（MIUI各个类别的区别请查看：<a target="_blank" rel="noopener" href="https://blog.minamigo.moe/archives/797">MIUI 各版本区别及下载地址</a>）</li>
+<li>HyperOS系统版本：根据模块版本有所不同，详情以更新日志和模块安装时的提示为准。</li>
+<li>cpu：arm64架构、高通骁龙</li>
+</ul>
+<h2 id="4-其它说明"><a href="#4-其它说明" class="headerlink" title="4.其它说明"></a>4.其它说明</h2><ul>
+<li><p><strong>常见问题列表：<a target="_blank" rel="noopener" href="https://blog.minamigo.moe/archives/395">https://blog.minamigo.moe/archives/395</a></strong></p>
+</li>
+<li><p>工具箱现已开源：<a target="_blank" rel="noopener" href="https://github.com/MinaMichita/MiuiEULocalizationToolsBox">https://github.com/MinaMichita/MiuiEULocalizationToolsBox</a></p>
+</li>
+</ul>
+<h1 id="二、使用方法"><a href="#二、使用方法" class="headerlink" title="二、使用方法"></a>二、使用方法</h1><p>警告：</p>
+<ul>
+<li>使用本项目前需要先装<a target="_blank" rel="noopener" href="https://github.com/topjohnwu/Magisk/releases">Magisk</a>和<a target="_blank" rel="noopener" href="https://github.com/LSPosed/LSPosed/releases">Lsposed</a></li>
+<li><strong>使用模块前必须进行整机备份，以免耽误工作</strong></li>
+<li>安装后不能禁用本模块，否则会导致问题。</li>
+<li>安装前请详细阅读本篇说明。安装后有问题请先阅读<a target="_blank" rel="noopener" href="https://blog.minamigo.moe/archives/395">常见问题</a>。</li>
+</ul>
+<h2 id="1-下载模块"><a href="#1-下载模块" class="headerlink" title="1.下载模块"></a>1.下载模块</h2><ul>
+<li>123网盘：<a target="_blank" rel="noopener" href="https://www.123865.com/s/YLcWjv-FqQtv">点我跳转</a></li>
+</ul>
+<h2 id="2-如何安装-更新"><a href="#2-如何安装-更新" class="headerlink" title="2.如何安装&#x2F;更新"></a>2.如何安装&#x2F;更新</h2><p><strong>使用模块前必须进行整机备份，以免耽误工作</strong></p>
+<p>按照以下顺序进行安装：</p>
+<ol>
+<li>刷入&#x2F;更新MIUI EU系统，并成功开机</li>
+<li>使用解压缩软件（推荐使用MT管理器），将模块内的 MiuiEuLocalization.ini 解压至 &#x2F;sdcard&#x2F;Download&#x2F;</li>
+<li>打开解压的MiuiEuLocalization.ini，根据其中的指示，进行修改</li>
+<li>在Magisk Manager中刷入MIUI EU本地化模块</li>
+<li>重启设备</li>
+<li>在Lsposed中激活MiuiEu本地化工具箱xposed模组</li>
+<li>重启设备</li>
+</ol>
+<h2 id="3-不再使用本地化项目，如何卸载"><a href="#3-不再使用本地化项目，如何卸载" class="headerlink" title="3.不再使用本地化项目，如何卸载"></a>3.不再使用本地化项目，如何卸载</h2><ol>
+<li>在Magisk Manager中移除模块后重启</li>
+</ol>
+<h1 id="三、更新计划及更新历史"><a href="#三、更新计划及更新历史" class="headerlink" title="三、更新计划及更新历史"></a>三、更新计划及更新历史</h1><h2 id="1-更新计划"><a href="#1-更新计划" class="headerlink" title="1.更新计划"></a>1.更新计划</h2><ul>
+<li><strong>仅自用，尚未测试全部功能</strong></li>
+<li><strong>仅自用，尚未测试全部功能</strong></li>
+<li><strong>仅自用，尚未测试全部功能</strong></li>
+<li><strong>工具箱xposed模组版本未更新</strong></li>
+<li><strong>工具箱xposed模组版本未更新</strong></li>
+<li><strong>工具箱xposed模组版本未更新</strong></li>
+</ul>
+<h2 id="2-更新历史"><a href="#2-更新历史" class="headerlink" title="2.更新历史"></a>2.更新历史</h2><p>###OS2.0.3.0.VMNCNXM 2025-01-24</p>
+<ul>
+<li>此版本基于K60 OS2.0.3.0.VMNCNXM</li>
+<li>不支持低于Android 15的各项功能</li>
+<li>工具箱xposed模组版本未更新</li>
+</ul>
+<p>###v14.0.7.0.TKHCNXM 2023-10-11</p>
+<ul>
+<li>此版本基于K40 V14.0.7.0.TKHCNXM</li>
+<li>修复了Android 13无法使用钱包公交卡门卡</li>
+<li>修复了部分机型屏蔽国际版标识后无法使用相机</li>
+</ul>
+<p>### 由于篇幅原因，更早的更新日志已删除 ###</p>
+<h1 id="四、特别感谢"><a href="#四、特别感谢" class="headerlink" title="四、特别感谢"></a>四、特别感谢</h1><h2 id="1-特别感谢"><a href="#1-特别感谢" class="headerlink" title="1.特别感谢"></a>1.特别感谢</h2><p>感谢以下大佬为MIUI &amp; HyperOS社区、HyperOS EU本地化项目做出的贡献。以及感谢每一位活跃在MIUI &amp; HyperOS社区的用户，<em><strong>还有屏幕前的你</strong></em>。</p>
+<p>以下排名不分先后。</p>
+<p>酷安大佬：</p>
+<ul>
+<li>多累米发说0219</li>
+<li>蜜桃花露水（重绘应用图标）</li>
+<li>tpsxx（工具箱xposed模组）</li>
+</ul>
+<h2 id="2-制作组名单"><a href="#2-制作组名单" class="headerlink" title="2.制作组名单"></a>2.制作组名单</h2><p>以下排名不分先后</p>
+<ul>
+<li>MinaMichita(MinaMiGo)</li>
+<li>ShellWen | 颉文</li>
+<li>WindsorWu | 温莎</li>
+</ul>
+<h1 id="五、免责声明"><a href="#五、免责声明" class="headerlink" title="五、免责声明"></a>五、免责声明</h1><p>有关HyperOSEULocalization模块（以下简称此模块或本模块）和HyperOSEU本地化工具箱app（以下简称此app&#x2F;应用或本app&#x2F;应用）的声明。</p>
+<p>本项目为非盈利项目，仅用于交流学习使用，严禁用于商业用途。</p>
+<p>本项目使用的文件及图标版权归属小米科技有限责任公司，仅供交流学习使用。任何人不得将本项目用于商业或其它用途。阁下如因用于其它用途导致的纠纷和法律责任均由阁下承担，与本项目及作者无关。</p>
+<p>阁下使用本项目即代表您已知可能会导致的风险，并愿意自行承担可能导致的后果，包括但不限于数据丢失、设备损坏等。请阁下操作前<strong>务必备份数据</strong>并将数据存放至可信介质。</p>
+
+    </div>
+    
+    <div class="post__license">
+        <p>
+            <strong>本文作者：</strong>WindsorWu
+        </p>
+        <p>
+            <strong>
+                本文链接：
+            </strong>
+            <a href="https://blog.nekolin.top/2025/01/24/HyperOSEULocalization/">https://blog.nekolin.top/2025/01/24/HyperOSEULocalization/</a>
+        </p>
+        
+            <strong>
+                <p>文章默认使用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a> 协议进行许可，使用时请注意遵守协议。</p>
+
+            </strong>
+        
+    </div>
+ 
+    <div class="post-footer__meta"><p>更新于 2025-01-24</p></div> 
+    <div class="post-entry__tags"><a href="/tags/Magisk/" class="post-tags__link button"># Magisk</a><a href="/tags/HyperOS/" class="post-tags__link button"># HyperOS</a><a href="/tags/HyperOS-EU/" class="post-tags__link button"># HyperOS.EU</a><a href="/tags/HyperOS%E6%9C%AC%E5%9C%B0%E5%8C%96/" class="post-tags__link button"># HyperOS本地化</a><a href="/tags/%E4%B8%AD%E6%96%87/" class="post-tags__link button"># 中文</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="/2025/01/04/Introduction-to-Software-Engineering/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            下一篇
+                        </div>
+                        <div class="nav__title">
+                            软件工程概论
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+
+
+</main>
+
+            <footer class="footer">
+     
+    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2022&nbsp;-&nbsp;2025 <a href="/">温莎酱部落格</a>
+        </p>
+    
+    
+        
+            <p><a target="_blank" rel="noopener" href="https://icp.gov.moe/?keyword=20232523">萌ICP备20232523号</a></p>
+
+        
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+        
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+    <script>
+        window.lazyLoadOptions = {
+            elements_selector: ".lazy",
+            threshold: 0
+        };
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement('script');
+            hm.src = 'https://hm.baidu.com/hm.js?9a2b4d30adc3d825fc137f3a49b91fa8';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+
+    <script src='https://cdn.jsdelivr.net/npm/mermaid@8.10.2/dist/mermaid.min.js'></script>
+    <script>
+            mermaid.initialize(JSON.stringify(''));
+    </script>
+ 
+
+ 
+
+
+
+
+    </body>
+</html>

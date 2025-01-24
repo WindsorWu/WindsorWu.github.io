@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+        <link rel="shortcut icon" href="/img/favicon.ico">
+    
+    
+        <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    
+    
+        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    
+    
+        <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+    
+    
+        <link rel="mask-icon" href="/img/safari-pinned-tab.svg">
+    
+
+
+    <!-- meta -->
+
+
+<title>C语言程序设计 第一章 | 温莎酱部落格</title><meta name="robots" content="noindex">
+
+
+    <meta name="keywords" content="C/C++">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="写本文的初衷是去年（2021年）开学后，有不少朋友问我C语言程序设计课程的题目。恰好我C语言的课程在二年级，所以没能帮上忙，十分愧疚。所以想留下这篇文章，以便复习和辅导。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言程序设计 第一章">
+<meta property="og:url" content="https://blog.nekolin.top/2022/09/08/StudyC-01/index.html">
+<meta property="og:site_name" content="温莎酱部落格">
+<meta property="og:description" content="写本文的初衷是去年（2021年）开学后，有不少朋友问我C语言程序设计课程的题目。恰好我C语言的课程在二年级，所以没能帮上忙，十分愧疚。所以想留下这篇文章，以便复习和辅导。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/08/helloworld.png">
+<meta property="og:image" content="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/08/twointplus.png">
+<meta property="og:image" content="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/08/bigger.png">
+<meta property="og:image" content="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/08/liuchengtu.png">
+<meta property="article:published_time" content="2022-09-08T15:00:00.000Z">
+<meta property="article:modified_time" content="2024-12-09T06:50:41.901Z">
+<meta property="article:author" content="WindsorWu">
+<meta property="article:tag" content="C&#x2F;C++">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/08/helloworld.png">
+
+
+    
+<link rel="stylesheet" href="/css/style/main.css">
+ 
+
+    
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="/css/highlight/hljs.css" media="none" >
+        
+            <link rel="stylesheet" id="hl-dark-theme" href="/css/highlight/hljs.dark.css" media="none">
+        
+    
+
+    
+
+    
+    
+<link rel="stylesheet" href="/css/style/dark.css">
+
+    
+<script src="/js/darkmode.js"></script>
+
+
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="/" class="button">
+            <span class="logo__text">WindsorWu&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/" class="navbar-menu button">首页</a>
+                
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
+                    <a href="/total/" class="navbar-menu button">分类</a>
+                
+                    <a href="/links/" class="navbar-menu button">友链</a>
+                
+                    <a href="/about/" class="navbar-menu button">关于</a>
+                
+                    <a target="_blank" rel="noopener" href="https://status.nekolin.top/" class="navbar-menu button">监测</a>
+                
+            </div>
+        
+        
+        
+    <a href="/search/" id="btn-search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="32"><path d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z"></path></svg>
+    </a>
+
+
+        
+        
+    <a href="javaScript:void(0);" id="btn-toggle-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </a>
+
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/" class="dropdown-menu button">首页</a>
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a href="/total/" class="dropdown-menu button">分类</a>
+                
+                    <a href="/links/" class="dropdown-menu button">友链</a>
+                
+                    <a href="/about/" class="dropdown-menu button">关于</a>
+                
+                    <a target="_blank" rel="noopener" href="https://status.nekolin.top/" class="dropdown-menu button">监测</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        C语言程序设计 第一章
+    </h1>
+    <div class="post-title__meta">
+        <a href="/archives/2022/09/" class="post-meta__date button">2022-09-08</a>
+        
+    <span class="separate-dot"></span><a href="/categories/%E7%AC%94%E8%AE%B0/" class="button">笔记</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+
+<article class="post content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <p>写本文的初衷是去年（2021年）开学后，有不少朋友问我C语言程序设计课程的题目。恰好我C语言的课程在二年级，所以没能帮上忙，十分愧疚。所以想留下这篇文章，以便复习和辅导。</p>
+<span id="more"></span>
+
+<p>本文属于自用笔记，假如对于你有帮助的话，鄙人万分荣幸。若有补充，请在评论区留言~</p>
+<h1 id="第一章-程序设计和C语言"><a href="#第一章-程序设计和C语言" class="headerlink" title="第一章 程序设计和C语言"></a>第一章 程序设计和C语言</h1><h2 id="1、最简单的C语言程序"><a href="#1、最简单的C语言程序" class="headerlink" title="1、最简单的C语言程序"></a>1、最简单的C语言程序</h2><h3 id="【例1-1】要求在屏幕上输出：Hello-World"><a href="#【例1-1】要求在屏幕上输出：Hello-World" class="headerlink" title="【例1.1】要求在屏幕上输出：Hello World"></a>【例1.1】要求在屏幕上输出：Hello World</h3><h4 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h4><p>在主函数中用printf函数原样输出以上文字。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span>				<span class="hljs-comment">//这是编译的主命令</span></span><br>init <span class="hljs-title function_">main</span><span class="hljs-params">()</span>						<span class="hljs-comment">//定义主函数</span><br>&#123;								<span class="hljs-comment">//函数开始的标志</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Hello World\n&quot;</span>);	<span class="hljs-comment">//输出所指定的一行信息</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>					<span class="hljs-comment">//函数执行完毕时返回函数值0</span><br>&#125;								<span class="hljs-comment">//函数结束的标志</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/08/helloworld.png" class="lazy" data-srcset="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/08/helloworld.png" srcset="/img/loading.gif"></p>
+<h4 id="程序分析"><a href="#程序分析" class="headerlink" title="程序分析"></a>程序分析</h4><ul>
+<li>在使用函数库中的输入输出函数时，编译系统要求程序提供有关此函数的信息，程序第1行<strong>“#include &lt;stdio.h&gt;”</strong>的作用就是用来提供这些信息的。<strong>stdio.h</strong>是系统提供的一个文件名，<strong>stdio</strong>是standard input &amp; output的缩写，文件后缀 <strong>.h</strong> 的意思是头文件(header file)，因为这些文件都是放在程序各文件模块的开头的。输入输出函数的相关信息已事先放在<strong>stdio.h</strong>文件中。</li>
+<li><strong>main</strong>是函数的名字，表示“主函数”；每一个C语言程序都必须有一个<strong>main</strong>函数。</li>
+<li><strong>main</strong>前面的<strong>int</strong>表示此函数的类型是<strong>int</strong>类型(整型)，即在执行主函数后会得到一个值(即函数值)，其值为整型。</li>
+<li><strong>return 0;</strong> 的作用是当 <strong>main</strong> 函数执行结束前将整数<strong>0</strong>作为函数值，返回到调用函数处。函数体由花括号**{}**括起来。</li>
+<li><strong>printf</strong>是C编译系统提供的函数库中的输出函数。<strong>printf</strong>函数中<strong>双引号</strong>内的字符串″Hello World.″按原样输出。<strong>\n</strong>是换行符，即在输出″Hello World.″后，显示屏上的光标位置移到下一行的开头。</li>
+<li>每个语句最后都有一个<strong>分号</strong>，表示语句结束。</li>
+</ul>
+<h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h4><ul>
+<li><strong>&#x2F;&#x2F;</strong> 表示从此处到本行结束是“注释”，用来对程序有关部分进行必要的说明。在写C程序时应当多用注释，以方便自己和别人理解程序各部分的作用。在程序进行预编译处理时将每个注释替换为一个空格，因此在编译时注释部分不产生目标代码，注释对运行不起作用。注释只是给人看的，而不是让计算机执行的。</li>
+</ul>
+<h6 id="以下为两种不同注释的方法"><a href="#以下为两种不同注释的方法" class="headerlink" title="以下为两种不同注释的方法"></a>以下为两种不同注释的方法</h6><table>
+<thead>
+<tr>
+<th>以&#x2F;&#x2F;开始的单行注释</th>
+<th>以&#x2F;* 开始以 *&#x2F;结束的块式注释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>这种注释可以单独占一行，也可以出现在一行中其他内容的右侧。此种注释的范围从&#x2F;&#x2F;开始，以换行符结束。如果注释内容一行内写不下，可以用多个单行注释。</td>
+<td>这种注释可以包含多行内容。它可以单独占一行(在行开头以&#x2F;* 开始，行末以 * &#x2F;结束），也可以包含多行。编译系统在发现一个 &#x2F;* 后，会开始找注释结束符 *&#x2F;，把二者间的内容作为注释。</td>
+</tr>
+<tr>
+<td><code>//第一行注释</code><br><code>//继续注释</code></td>
+<td><code>/*一整块都是</code><br/><code>注释*/</code></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>注意：在字符串中的&#x2F;&#x2F;和&#x2F;*都不作为注释的开始。而是作为字符串的一部分</p>
+</blockquote>
+<h3 id="【例1-2】求两个整数之和"><a href="#【例1-2】求两个整数之和" class="headerlink" title="【例1.2】求两个整数之和"></a>【例1.2】求两个整数之和</h3><h4 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h4><p>设置3个变量，a和b用来存放两个整数，sum用来存放和数。用赋值运算符“&#x3D;”把相加的结果传送给sum。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span>					<span class="hljs-comment">//这是编译预处理指令 </span></span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">( )</span>							<span class="hljs-comment">//定义主函数</span><br>&#123; 									<span class="hljs-comment">//函数开始 </span><br>    <span class="hljs-type">int</span> a,b,sum; 					<span class="hljs-comment">//本行是程序的声明部分，定义a,b,sum为整型变量</span><br>    a=<span class="hljs-number">123</span>;							<span class="hljs-comment">//对变量a赋值</span><br>    b=<span class="hljs-number">456</span>;							<span class="hljs-comment">//对变量b赋值 </span><br>    sum=a+b;						<span class="hljs-comment">//进行a+b的运算，并把结果存放在变量sum中</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;sum is %d\n&quot;</span>,sum); 		<span class="hljs-comment">//输出结果 </span><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;						<span class="hljs-comment">//使函数返回值为0</span><br>&#125;									<span class="hljs-comment">//函数结束</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/08/twointplus.png" class="lazy" data-srcset="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/08/twointplus.png" srcset="/img/loading.gif"></p>
+<h4 id="程序分析-1"><a href="#程序分析-1" class="headerlink" title="程序分析"></a>程序分析</h4><ul>
+<li><strong>printf(“sum is %d\n”,sum);</strong>  <strong>printf</strong> 函数圆括号内有两个参数。第一个参数是双引号中的内容 <strong>sum is %d\n</strong>，它是输出格式字符串，作用是输出用户希望输出的字符和输出的格式。其中 <strong>sum is</strong> 是用户希望输出的 <strong>字符</strong> ， <strong>％d</strong> 是指定的输出格式， <strong>d</strong> 表示用“十进制整数”形式输出。圆括号内第二个 <strong>参数sum</strong> 表示要输出 <strong>变量sum</strong> 的值。在执行 <strong>printf</strong> 函数时，将 <strong>sum</strong> 变量的值（以十进制整数表示）取代双引号中的 <strong>%d</strong> 。</li>
+</ul>
+<h3 id="【例1-3】输入两个数，要求输出其中较大者。"><a href="#【例1-3】输入两个数，要求输出其中较大者。" class="headerlink" title="【例1.3】输入两个数，要求输出其中较大者。"></a>【例1.3】输入两个数，要求输出其中较大者。</h3><h4 id="解题思路-2"><a href="#解题思路-2" class="headerlink" title="解题思路"></a>解题思路</h4><p>① 从键盘输入两个数</p>
+<p>② 用一个函数来实现求两个整数中的较大者</p>
+<p>③ 在主函数中调用此函数并输出结果</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-comment">//主函数</span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>						<span class="hljs-comment">//定义主函数</span><br>&#123;								<span class="hljs-comment">//主函数体开始</span><br>	<span class="hljs-type">int</span> <span class="hljs-title function_">max</span><span class="hljs-params">(<span class="hljs-type">int</span> x,<span class="hljs-type">int</span> y)</span>;		<span class="hljs-comment">//对被调用函数max的声明</span><br>	<span class="hljs-type">int</span> a,b,c;					<span class="hljs-comment">//定义变量a，b，c</span><br>	<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d,%d&quot;</span>,&amp;a,&amp;b); 		<span class="hljs-comment">//输入变量a和b的值</span><br>	c=max(a,b);					<span class="hljs-comment">//调用max函数，将得到的值赋给c</span><br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;max=%d\n&quot;</span>,c); 		<span class="hljs-comment">//输出c的值</span><br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;					<span class="hljs-comment">//返回函数值为0</span><br>&#125;								<span class="hljs-comment">//主函数体结束</span><br><br><span class="hljs-comment">//求两个整数中的较大者的max函数</span><br><span class="hljs-type">int</span> <span class="hljs-title function_">max</span><span class="hljs-params">(<span class="hljs-type">int</span> x,<span class="hljs-type">int</span> y)</span>			<span class="hljs-comment">//定义max函数,函数值为整型, 形式参数x和y为整型 </span><br>&#123;<br>	<span class="hljs-type">int</span> z;						<span class="hljs-comment">//max函数中的声明部分，定义本函数中用到的变量z为整型</span><br>	<span class="hljs-keyword">if</span>(x&gt;y)z=x;					<span class="hljs-comment">//若x&gt;y成立，将x的值赋给变量z</span><br>	<span class="hljs-keyword">else</span> z=y;					<span class="hljs-comment">//否则(即x&gt;y不成立)，将y的值赋给变量z</span><br>	<span class="hljs-keyword">return</span>(z); 					<span class="hljs-comment">//将z的值作为max函数值，返回到调用max函数的位置</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/08/bigger.png" class="lazy" data-srcset="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/08/bigger.png" srcset="/img/loading.gif"></p>
+<h4 id="程序分析-2"><a href="#程序分析-2" class="headerlink" title="程序分析"></a>程序分析</h4><ul>
+<li>本程序包括两个函数：①主函数<strong>main</strong>；②被调用的函数<strong>max</strong>。</li>
+<li><strong>max</strong> 函数的作用是将x和y中较大者的值赋给变量 <strong>z</strong> ，最后通过 <strong>return</strong> 语句将z的值作为 **max **的函数值返回给调用 <strong>max</strong> 函数的主函数。</li>
+<li><strong>scanf</strong> 是输入函数的名字(scanf和printf都是C的标准输入输出函数)。该 <strong>scanf</strong> 函数的作用是输入变量a和b的值。</li>
+<li><strong>max(a，b)</strong> 调用 <strong>max</strong> 函数。在调用时将a和b作为 <strong>max</strong> 函数的实际参数的值分别传送给 <strong>max</strong> 函数中的形式参数x和y。</li>
+</ul>
+<h3 id="C语言程序的结构"><a href="#C语言程序的结构" class="headerlink" title="C语言程序的结构"></a>C语言程序的结构</h3><ul>
+<li><p>一个程序由一个或多个源程序文件组成</p>
+<p>​	源程序文件包括：预处理指令、全局声明、函数定义</p>
+</li>
+<li><p>函数时C程序的主要组成部分</p>
+<p>​	一个C语言程序是由一个或多个函数组成的，其中必须包含唯一一个main函数</p>
+<p>​	程序中被调用的函数可以是系统提供的库函数，也可以是用户根据需要自己编制设计的函数</p>
+</li>
+<li><p>一个函数包括两个部分：函数首部和函数体，函数体一般包括声明部分和执行部分</p>
+</li>
+<li><p>程序总是从main函数开始执行</p>
+</li>
+<li><p>程序中的操作是由函数中的C语句完成的</p>
+</li>
+<li><p>在每个数据声明和语句的最后必须有一个分号</p>
+</li>
+<li><p>C语言本身不提供输入输出语句，输入输出操作由函数完成</p>
+</li>
+<li><p>程序应当包含注释</p>
+</li>
+</ul>
+<p><img src="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/08/liuchengtu.png" class="lazy" data-srcset="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/08/liuchengtu.png" srcset="/img/loading.gif"></p>
+<h2 id="2、C程序的运行与设计任务"><a href="#2、C程序的运行与设计任务" class="headerlink" title="2、C程序的运行与设计任务"></a>2、C程序的运行与设计任务</h2><h3 id="运行C程序的步骤与方法"><a href="#运行C程序的步骤与方法" class="headerlink" title="运行C程序的步骤与方法"></a>运行C程序的步骤与方法</h3><h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><p>① 上机输入和编辑源程序<br>② 对源程序进行编译<br>③ 进行连接处理<br>④ 运行可执行程序，得到运行结果</p>
+<h3 id="程序设计的任务"><a href="#程序设计的任务" class="headerlink" title="程序设计的任务"></a>程序设计的任务</h3><pre class="mermaid">graph TD;
+
+A([开始])
+
+B[问题分析]
+
+C[设计算法]
+
+D[编写程序]
+
+E[对源程序进行编辑, 编译和连接]
+
+F[运行程序分析结果]
+
+G[编写程序文档]
+
+H([结束])
+
+A --> B --> C --> D --> E --> F --> G --> H</pre><!-- flag of hidden posts -->
+    </div>
+    
+    <div class="post__license">
+        <p>
+            <strong>本文作者：</strong>WindsorWu
+        </p>
+        <p>
+            <strong>
+                本文链接：
+            </strong>
+            <a href="https://blog.nekolin.top/2022/09/08/StudyC-01/">https://blog.nekolin.top/2022/09/08/StudyC-01/</a>
+        </p>
+        
+            <strong>
+                <p>文章默认使用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a> 协议进行许可，使用时请注意遵守协议。</p>
+
+            </strong>
+        
+    </div>
+ 
+    <div class="post-footer__meta"><p>更新于 2024-12-09</p></div> 
+    <div class="post-entry__tags"><a href="/tags/C-C/" class="post-tags__link button"># C/C++</a></div> 
+</article>
+
+
+
+
+
+
+</main>
+
+            <footer class="footer">
+     
+    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2022&nbsp;-&nbsp;2025 <a href="/">温莎酱部落格</a>
+        </p>
+    
+    
+        
+            <p><a target="_blank" rel="noopener" href="https://icp.gov.moe/?keyword=20232523">萌ICP备20232523号</a></p>
+
+        
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+        
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+    <script>
+        window.lazyLoadOptions = {
+            elements_selector: ".lazy",
+            threshold: 0
+        };
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement('script');
+            hm.src = 'https://hm.baidu.com/hm.js?9a2b4d30adc3d825fc137f3a49b91fa8';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+
+    <script src='https://cdn.jsdelivr.net/npm/mermaid@8.10.2/dist/mermaid.min.js'></script>
+    <script>
+            mermaid.initialize(JSON.stringify(''));
+    </script>
+ 
+
+ 
+
+
+
+
+    </body>
+</html>
