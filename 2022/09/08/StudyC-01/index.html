@@ -52,16 +52,16 @@
 <meta property="og:site_name" content="温莎酱部落格">
 <meta property="og:description" content="写本文的初衷是去年（2021年）开学后，有不少朋友问我C语言程序设计课程的题目。恰好我C语言的课程在二年级，所以没能帮上忙，十分愧疚。所以想留下这篇文章，以便复习和辅导。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/08/helloworld.png">
-<meta property="og:image" content="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/08/twointplus.png">
-<meta property="og:image" content="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/08/bigger.png">
-<meta property="og:image" content="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/08/liuchengtu.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/WindsorWu/Blog_Photo/2022/09/08/helloworld.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/WindsorWu/Blog_Photo/2022/09/08/twointplus.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/WindsorWu/Blog_Photo/2022/09/08/bigger.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/WindsorWu/Blog_Photo/2022/09/08/liuchengtu.png">
 <meta property="article:published_time" content="2022-09-08T15:00:00.000Z">
-<meta property="article:modified_time" content="2024-12-09T06:50:41.901Z">
+<meta property="article:modified_time" content="2026-02-21T09:16:05.151Z">
 <meta property="article:author" content="WindsorWu">
 <meta property="article:tag" content="C&#x2F;C++">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/08/helloworld.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/WindsorWu/Blog_Photo/2022/09/08/helloworld.png">
 
 
     
@@ -196,7 +196,7 @@
 <h1 id="第一章-程序设计和C语言"><a href="#第一章-程序设计和C语言" class="headerlink" title="第一章 程序设计和C语言"></a>第一章 程序设计和C语言</h1><h2 id="1、最简单的C语言程序"><a href="#1、最简单的C语言程序" class="headerlink" title="1、最简单的C语言程序"></a>1、最简单的C语言程序</h2><h3 id="【例1-1】要求在屏幕上输出：Hello-World"><a href="#【例1-1】要求在屏幕上输出：Hello-World" class="headerlink" title="【例1.1】要求在屏幕上输出：Hello World"></a>【例1.1】要求在屏幕上输出：Hello World</h3><h4 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h4><p>在主函数中用printf函数原样输出以上文字。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span>				<span class="hljs-comment">//这是编译的主命令</span></span><br>init <span class="hljs-title function_">main</span><span class="hljs-params">()</span>						<span class="hljs-comment">//定义主函数</span><br>&#123;								<span class="hljs-comment">//函数开始的标志</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Hello World\n&quot;</span>);	<span class="hljs-comment">//输出所指定的一行信息</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>					<span class="hljs-comment">//函数执行完毕时返回函数值0</span><br>&#125;								<span class="hljs-comment">//函数结束的标志</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/08/helloworld.png" class="lazy" data-srcset="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/08/helloworld.png" srcset="/img/loading.gif"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/WindsorWu/Blog_Photo/2022/09/08/helloworld.png" class="lazy" data-srcset="https://cdn.jsdelivr.net/gh/WindsorWu/Blog_Photo/2022/09/08/helloworld.png" srcset="/img/loading.gif"></p>
 <h4 id="程序分析"><a href="#程序分析" class="headerlink" title="程序分析"></a>程序分析</h4><ul>
 <li>在使用函数库中的输入输出函数时，编译系统要求程序提供有关此函数的信息，程序第1行<strong>“#include &lt;stdio.h&gt;”</strong>的作用就是用来提供这些信息的。<strong>stdio.h</strong>是系统提供的一个文件名，<strong>stdio</strong>是standard input &amp; output的缩写，文件后缀 <strong>.h</strong> 的意思是头文件(header file)，因为这些文件都是放在程序各文件模块的开头的。输入输出函数的相关信息已事先放在<strong>stdio.h</strong>文件中。</li>
 <li><strong>main</strong>是函数的名字，表示“主函数”；每一个C语言程序都必须有一个<strong>main</strong>函数。</li>
@@ -230,7 +230,7 @@
 <h3 id="【例1-2】求两个整数之和"><a href="#【例1-2】求两个整数之和" class="headerlink" title="【例1.2】求两个整数之和"></a>【例1.2】求两个整数之和</h3><h4 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h4><p>设置3个变量，a和b用来存放两个整数，sum用来存放和数。用赋值运算符“&#x3D;”把相加的结果传送给sum。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span>					<span class="hljs-comment">//这是编译预处理指令 </span></span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">( )</span>							<span class="hljs-comment">//定义主函数</span><br>&#123; 									<span class="hljs-comment">//函数开始 </span><br>    <span class="hljs-type">int</span> a,b,sum; 					<span class="hljs-comment">//本行是程序的声明部分，定义a,b,sum为整型变量</span><br>    a=<span class="hljs-number">123</span>;							<span class="hljs-comment">//对变量a赋值</span><br>    b=<span class="hljs-number">456</span>;							<span class="hljs-comment">//对变量b赋值 </span><br>    sum=a+b;						<span class="hljs-comment">//进行a+b的运算，并把结果存放在变量sum中</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;sum is %d\n&quot;</span>,sum); 		<span class="hljs-comment">//输出结果 </span><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;						<span class="hljs-comment">//使函数返回值为0</span><br>&#125;									<span class="hljs-comment">//函数结束</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/08/twointplus.png" class="lazy" data-srcset="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/08/twointplus.png" srcset="/img/loading.gif"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/WindsorWu/Blog_Photo/2022/09/08/twointplus.png" class="lazy" data-srcset="https://cdn.jsdelivr.net/gh/WindsorWu/Blog_Photo/2022/09/08/twointplus.png" srcset="/img/loading.gif"></p>
 <h4 id="程序分析-1"><a href="#程序分析-1" class="headerlink" title="程序分析"></a>程序分析</h4><ul>
 <li><strong>printf(“sum is %d\n”,sum);</strong>  <strong>printf</strong> 函数圆括号内有两个参数。第一个参数是双引号中的内容 <strong>sum is %d\n</strong>，它是输出格式字符串，作用是输出用户希望输出的字符和输出的格式。其中 <strong>sum is</strong> 是用户希望输出的 <strong>字符</strong> ， <strong>％d</strong> 是指定的输出格式， <strong>d</strong> 表示用“十进制整数”形式输出。圆括号内第二个 <strong>参数sum</strong> 表示要输出 <strong>变量sum</strong> 的值。在执行 <strong>printf</strong> 函数时，将 <strong>sum</strong> 变量的值（以十进制整数表示）取代双引号中的 <strong>%d</strong> 。</li>
 </ul>
@@ -239,7 +239,7 @@
 <p>③ 在主函数中调用此函数并输出结果</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-comment">//主函数</span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>						<span class="hljs-comment">//定义主函数</span><br>&#123;								<span class="hljs-comment">//主函数体开始</span><br>	<span class="hljs-type">int</span> <span class="hljs-title function_">max</span><span class="hljs-params">(<span class="hljs-type">int</span> x,<span class="hljs-type">int</span> y)</span>;		<span class="hljs-comment">//对被调用函数max的声明</span><br>	<span class="hljs-type">int</span> a,b,c;					<span class="hljs-comment">//定义变量a，b，c</span><br>	<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d,%d&quot;</span>,&amp;a,&amp;b); 		<span class="hljs-comment">//输入变量a和b的值</span><br>	c=max(a,b);					<span class="hljs-comment">//调用max函数，将得到的值赋给c</span><br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;max=%d\n&quot;</span>,c); 		<span class="hljs-comment">//输出c的值</span><br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;					<span class="hljs-comment">//返回函数值为0</span><br>&#125;								<span class="hljs-comment">//主函数体结束</span><br><br><span class="hljs-comment">//求两个整数中的较大者的max函数</span><br><span class="hljs-type">int</span> <span class="hljs-title function_">max</span><span class="hljs-params">(<span class="hljs-type">int</span> x,<span class="hljs-type">int</span> y)</span>			<span class="hljs-comment">//定义max函数,函数值为整型, 形式参数x和y为整型 </span><br>&#123;<br>	<span class="hljs-type">int</span> z;						<span class="hljs-comment">//max函数中的声明部分，定义本函数中用到的变量z为整型</span><br>	<span class="hljs-keyword">if</span>(x&gt;y)z=x;					<span class="hljs-comment">//若x&gt;y成立，将x的值赋给变量z</span><br>	<span class="hljs-keyword">else</span> z=y;					<span class="hljs-comment">//否则(即x&gt;y不成立)，将y的值赋给变量z</span><br>	<span class="hljs-keyword">return</span>(z); 					<span class="hljs-comment">//将z的值作为max函数值，返回到调用max函数的位置</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p><img src="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/08/bigger.png" class="lazy" data-srcset="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/08/bigger.png" srcset="/img/loading.gif"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/WindsorWu/Blog_Photo/2022/09/08/bigger.png" class="lazy" data-srcset="https://cdn.jsdelivr.net/gh/WindsorWu/Blog_Photo/2022/09/08/bigger.png" srcset="/img/loading.gif"></p>
 <h4 id="程序分析-2"><a href="#程序分析-2" class="headerlink" title="程序分析"></a>程序分析</h4><ul>
 <li>本程序包括两个函数：①主函数<strong>main</strong>；②被调用的函数<strong>max</strong>。</li>
 <li><strong>max</strong> 函数的作用是将x和y中较大者的值赋给变量 <strong>z</strong> ，最后通过 <strong>return</strong> 语句将z的值作为 **max **的函数值返回给调用 <strong>max</strong> 函数的主函数。</li>
@@ -267,7 +267,7 @@
 <li><p>程序应当包含注释</p>
 </li>
 </ul>
-<p><img src="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/08/liuchengtu.png" class="lazy" data-srcset="https://raw.gitmirror.com/WindsorWu/Blog_Photo/master/2022/09/08/liuchengtu.png" srcset="/img/loading.gif"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/WindsorWu/Blog_Photo/2022/09/08/liuchengtu.png" class="lazy" data-srcset="https://cdn.jsdelivr.net/gh/WindsorWu/Blog_Photo/2022/09/08/liuchengtu.png" srcset="/img/loading.gif"></p>
 <h2 id="2、C程序的运行与设计任务"><a href="#2、C程序的运行与设计任务" class="headerlink" title="2、C程序的运行与设计任务"></a>2、C程序的运行与设计任务</h2><h3 id="运行C程序的步骤与方法"><a href="#运行C程序的步骤与方法" class="headerlink" title="运行C程序的步骤与方法"></a>运行C程序的步骤与方法</h3><h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><p>① 上机输入和编辑源程序<br>② 对源程序进行编译<br>③ 进行连接处理<br>④ 运行可执行程序，得到运行结果</p>
 <h3 id="程序设计的任务"><a href="#程序设计的任务" class="headerlink" title="程序设计的任务"></a>程序设计的任务</h3><pre class="mermaid">graph TD;
 
@@ -308,7 +308,7 @@ A --> B --> C --> D --> E --> F --> G --> H</pre><!-- flag of hidden posts -->
         
     </div>
  
-    <div class="post-footer__meta"><p>更新于 2024-12-09</p></div> 
+    <div class="post-footer__meta"><p>更新于 2026-02-21</p></div> 
     <div class="post-entry__tags"><a href="/tags/C-C/" class="post-tags__link button"># C/C++</a></div> 
 </article>
 
@@ -361,7 +361,7 @@ A --> B --> C --> D --> E --> F --> G --> H</pre><!-- flag of hidden posts -->
     
         
         <p class="footer-copyright">
-            Copyright © 2022&nbsp;-&nbsp;2025 <a href="/">温莎酱部落格</a>
+            Copyright © 2022&nbsp;-&nbsp;2026 <a href="/">温莎酱部落格</a>
         </p>
     
     
